@@ -1,7 +1,6 @@
 <?php
     
     error_reporting(0);
-	session_start(); //para poder disponer de la variable de sesión $_SESSION['user_id']
 ?>
 
 <!DOCTYPE html>
