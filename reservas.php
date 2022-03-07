@@ -46,10 +46,10 @@
             <button type="button" class="btn btn-secondary" onclick="window.location='reservar.php'">Reservar material</button>
         </div>
         <div>
-            <table class="table table-secondary">
+            <table class="table table-secondary tabla-reservas">
                 <tr><td>prueba@prueba.com</td></tr>
-                <tr><td>reservado el 07/03/2022 <br> 10/03/2022 <br> ...</td></tr>
-                <tr><td>Hora inicio 12:00 hora fin 17:00</td></tr>
+                <tr><td>Reservado el 07/03/2022 <br> <b>10/03/2022</b> <br> ...</td></tr>
+                <tr><td>Hora inicio 12:00 Hora fin 17:00</td></tr>
             </table>
         </div>
     </body>
