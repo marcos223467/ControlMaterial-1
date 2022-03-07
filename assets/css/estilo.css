@@ -39,5 +39,13 @@ a{
 
 h1
 {
-    color: red;
+    color: white;
+}
+
+.tarjeta
+{
+	display: block;
+	margin: 0 auto;
+	width: 20rem !important;
+	height: 20rem !important;
 }
