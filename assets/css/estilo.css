@@ -49,3 +49,27 @@ h1
 	width: 20rem !important;
 	height: 20rem !important;
 }
+
+#top-reservas a
+{
+	text-decoration: underline;
+	font-size: 0.7rem;
+}
+#top-reservas i
+{
+	margin-top: 2rem;
+	font-size: 3rem;
+	color: #ff6b10;
+}
+#top-reservas h2
+{
+	margin-top: 1rem;
+	color: white;
+	font-size: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+#top-reservas button
+{
+	margin-top: 3rem;
+}
