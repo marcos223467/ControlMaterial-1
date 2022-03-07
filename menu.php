@@ -15,6 +15,7 @@
         else
         {
             echo "<script> console.log('No hay sesion') </script>";
+            header("location: index.php");
         }
 
 
@@ -30,7 +31,7 @@
         <script src="https://kit.fontawesome.com/39f1326549.js" crossorigin="anonymous"></script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/estilo.css">
         <link rel="stylesheet" type="text/css" href="assets/css/avatar.css">
 
         <!-- JQuery -->
@@ -53,114 +54,35 @@
                     <span><?php echo $_SESSION['email']; ?></span>
                 </div><br><br>
                 
-                <a href="logout.php">Salir</a>
+                <a href="controller/logout.php">Salir</a>
 
                 <div class="container mb-3" style="margin-top: 2%">
                     
                     
                     
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
 
-                    <div class="col">
+                    <div class="col tarjeta">
 
-                        <a href="crearPost.php"><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
+                        <a href="reservas.php"><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
                         <div class="card-header">
                             <h3><i class="fas fa-rocket" style="color: #e6e6e6"></i></h3>
                         </div>
                         <div class="card-body">
 
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Nueva publicación foto</h5>
+                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Reservar material</h5>
                             
                         </div>
                         </div></a>
 
-                    </div>
-                    
-                    <div class="col">
-
-                        <a href="crearPostVideo.php"><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                        <div class="card-header">
-                            <h3><i class="fas fa-rocket" style="color: #e6e6e6"></i></h3>
-                        </div>
-                        <div class="card-body">
-
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Nueva publicación vídeo</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    <div class="col">
-
-                        <a href=""><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-meteor" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver publicaciones</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    <div class="col">
-
-                        <a href=""><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-satellite" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Asistencia</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    <div class="col">
-
-                        <a href=""><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-user-astronaut" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Logros y Evaluaciones</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    
-                    
-                    <div class="col">
-
-                        <a href=""><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-laptop" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Material clases</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    
+                    </div>                   
 
                 </div>
             </div>
 
             <!-- ADMIN -->
 
-            <?php /*if($user['email'] == 'jorge.perez@somoscodenautas.com' or $user['email'] == 'marga.pertegaz@somoscodenautas.com'){ */?>
+            <?php if($_SESSION['rol'] == "admin"){ ?>
 
             <div class="container mb-3" style="margin-top: 3%">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
@@ -230,7 +152,7 @@
                 </div>
             </div>
 
-            <?php /*} */?>
+            <?php }?>
 
 
 

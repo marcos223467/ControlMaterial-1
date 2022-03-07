@@ -6,7 +6,7 @@
 
     session_destroy(); 	//Destruimos la sesión
 
-    header('location: index.php');	//Redireccionamos al usuario a la página principal
+    header('location: ../index.php');	//Redireccionamos al usuario a la página principal
 
 
 ?>

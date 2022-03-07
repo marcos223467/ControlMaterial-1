@@ -41,3 +41,11 @@ h1
 {
     color: white;
 }
+
+.tarjeta
+{
+	display: block;
+	margin: 0 auto;
+	width: 20rem !important;
+	height: 20rem !important;
+}
