@@ -21,8 +21,8 @@
 
 ?>
 
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +39,6 @@
 
     </head>
 
-    <?php /*if(isset($_SESSION['user_id']) && ($user['rol'] == 'A' || $user['rol'] == 'B')){ */?>
-
 
     <body id="publicaciones-profes" style="display:none; background-color: #26262c; background-size: cover;">
 
@@ -50,52 +48,46 @@
 
         <!-- Hemos accedido a la app -->
 
-                <br><div class="chip">
-                    <span><?php echo $_SESSION['email']; ?></span>
-                </div><br><br>
-                
-                <a href="controller/logout.php">Salir</a>
+        <br>
+        <div class="chip">
+            <span><?php echo $_SESSION['email']; ?></span>
+        </div>
+        <br><br>
+        
+        <a href="controller/logout.php">Salir</a>
+        <br><br>
+        <div class="container">
+            <div class="tarjeta">
 
-                <div class="container mb-3" style="margin-top: 2%">
-                    
-                    
-                    
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-1">
+                <a href="reservas.php"><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
+                    <div class="card-header">
+                        <h3><i class="fas fa-rocket" style="color: #e6e6e6"></i></h3>
+                    </div>
+                    <div class="card-body">
 
-                    <div class="col tarjeta">
-
-                        <a href="reservas.php"><div class="card mx-auto" style="background-color: #ff6b10; height:120px;">
-                        <div class="card-header">
-                            <h3><i class="fas fa-rocket" style="color: #e6e6e6"></i></h3>
-                        </div>
-                        <div class="card-body">
-
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Reservar material</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>                   
-
-                </div>
+                        <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Reservar material</h5>
+                        
+                    </div>
+                </a>
             </div>
+        </div>
 
             <!-- ADMIN -->
 
             <?php if($_SESSION['rol'] == "admin"){ ?>
 
-            <div class="container mb-3" style="margin-top: 3%">
+            <div class="container mb-3" style="margin-top: -10%;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
 
                     <div class="col">
 
-                        <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
+                        <a href="altaUser.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                         <div class="card-header">
-                            <h3><i class="fas fa-space-shuttle" style="color: #e6e6e6"></i></h3>
+                            <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
                         </div>
                         <div class="card-body">
 
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta profesor/a</h5>
+                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h5>
                             
                         </div>
                         </div></a>
@@ -106,26 +98,11 @@
 
                         <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                             <div class="card-header">
-                            <h3><i class="fas fa-hand-spock" style="color: #e6e6e6"></i></h3>
+                            <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
                         </div>
                     
                         <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta padre/madre</h5>
-                            
-                        </div>
-                        </div></a>
-
-                    </div>
-
-                    <div class="col">
-
-                        <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-satellite-dish" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Comunicados</h5>
+                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h5>
                             
                         </div>
                         </div></a>
@@ -136,7 +113,7 @@
 
                         <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                             <div class="card-header">
-                            <h3><i class="fas fa-calendar-alt" style="color: #e6e6e6"></i></h3>
+                            <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
                         </div>
                     
                         <div class="card-body">
@@ -146,7 +123,20 @@
                         </div></a>
 
                     </div>
+                    <div class="col">
 
+                        <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
+                            <div class="card-header">
+                            <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h5>
+                            
+                        </div>
+                        </div></a>
+
+                    </div>
                     
 
                 </div>
