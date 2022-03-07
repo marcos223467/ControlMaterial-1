@@ -20,6 +20,10 @@
 
 			if($fila['password'] == $pssw)
 			{
+				session_start();
+				$_SESSION["user_id"] = $fila['id'];
+				$_SESSION["email"] = $fila['email'];
+				$_SESSION["rol"] = $fila['rol'];
 				header('location: ../menu.php');
 			}
 			else

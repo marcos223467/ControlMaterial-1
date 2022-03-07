@@ -8,27 +8,9 @@
 
         //Si existe la variable user_id en la sesión:
 
-        if(isset($_SESSION['user_id'])){
-
+        if(isset($_SESSION['user_id']))
+        {
             echo "<script> console.log('Hay sesion') </script>";
-
-            //Seleccionamos desde la base de datos los datos del usuario
-            $records = $conn->prepare('SELECT id, email, password, rol FROM users WHERE id = :id');
-
-            //Remplazamos el dato id por el recibido por el de la sesión (Vinculamos el dato):
-            $records->bindParam(':id', $_SESSION['user_id']);
-
-            //Ejecutamos la consulta
-            $records->execute();
-
-            //Obtenemos a través del método FETCH los datos del usuario en un array asociativo:
-            $results = $records->fetch(PDO::FETCH_ASSOC);
-
-            $user = null;
-
-            if(count($results) > 0){
-                $user = $results;
-            }
         }
         else
         {
@@ -68,7 +50,7 @@
         <!-- Hemos accedido a la app -->
 
                 <br><div class="chip">
-                    <span><?= $user['email']; ?></span>
+                    <span><?php echo $_SESSION['email']; ?></span>
                 </div><br><br>
                 
                 <a href="logout.php">Salir</a>
