@@ -30,11 +30,13 @@
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
         <br>
-        <div class="alert alert-success" role="alert" id="alertG">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertG">
             Usuario registrado con éxito!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <div class="alert alert-danger" role="alert" id="alertB">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertB">
             El usuario no se ha podido registrar!
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <div class="container" style="width: 50%; background-color: #CCCC; border-radius: 15px; margin-top: 1%;">
             
