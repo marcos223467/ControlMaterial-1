@@ -50,6 +50,7 @@ h1
 	height: 20rem !important;
 }
 
+/*RESERVAS*/
 #top-reservas a
 {
 	text-decoration: underline;
@@ -64,6 +65,7 @@ h1
 #top-reservas h2
 {
 	margin-top: 1rem;
+	margin-bottom: 3rem;
 	color: white;
 	font-size: 2rem;
 	text-transform: uppercase;
@@ -71,5 +73,20 @@ h1
 }
 #top-reservas button
 {
-	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
+.card-title
+{
+	font-size: 2rem;
+}
+
+
+/*RESERVAR*/
+.reservar input
+{
+	width: 18rem;
+}
+.reservar select
+{
+	width: 18rem;
 }

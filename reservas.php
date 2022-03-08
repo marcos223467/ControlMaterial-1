@@ -27,7 +27,7 @@
     <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/>
-        <title>Reservar</title>
+        <title>Reservas</title>
         <script src="https://kit.fontawesome.com/39f1326549.js" crossorigin="anonymous"></script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -42,15 +42,57 @@
         <div id="top-reservas">
             <a href="menu.php">Volver</a><br>
             <i class="fas fa-solid fa-laptop"></i>
-            <h2>Reserva de material</h2>
+            <h2>Reservas actuales</h2>
             <button type="button" class="btn btn-secondary" onclick="window.location='reservar.php'">Reservar material</button>
         </div>
-        <div>
-            <table class="table table-secondary tabla-reservas">
-                <tr><td>prueba@prueba.com</td></tr>
-                <tr><td>Reservado el 07/03/2022 <br> <b>10/03/2022</b> <br> ...</td></tr>
-                <tr><td>Hora inicio 12:00 Hora fin 17:00</td></tr>
-            </table>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
+                    <div class="card-header">prueba@prueba.com</div>
+                    <div class="card-body">
+                        <p class="card-text">Reservado el 07/03/2022</p>
+                        <h5 class="card-title">10/03/2022</h5>
+                        <p class="card-text">...</p>
+                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
+                    </div>
+                </div>
+                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
+                    <div class="card-header">prueba@prueba.com</div>
+                    <div class="card-body">
+                        <p class="card-text">Reservado el 07/03/2022</p>
+                        <h5 class="card-title">10/03/2022</h5>
+                        <p class="card-text">...</p>
+                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
+                    </div>
+                </div>
+                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
+                    <div class="card-header">prueba@prueba.com</div>
+                    <div class="card-body">
+                        <p class="card-text">Reservado el 07/03/2022</p>
+                        <h5 class="card-title">10/03/2022</h5>
+                        <p class="card-text">...</p>
+                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
+                    </div>
+                </div>
+                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
+                    <div class="card-header">prueba@prueba.com</div>
+                    <div class="card-body">
+                        <p class="card-text">Reservado el 07/03/2022</p>
+                        <h5 class="card-title">10/03/2022</h5>
+                        <p class="card-text">...</p>
+                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
+                    </div>
+                </div>
+                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
+                    <div class="card-header">prueba@prueba.com</div>
+                    <div class="card-body">
+                        <p class="card-text">Reservado el 07/03/2022</p>
+                        <h5 class="card-title">10/03/2022</h5>
+                        <p class="card-text">...</p>
+                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
     </html>
