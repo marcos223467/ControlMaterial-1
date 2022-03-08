@@ -14,41 +14,62 @@
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+        <script>
+            function volver(event)
+            {
+                event.preventDefault();
+                window.location.href="menu.php";
+            }
+        </script>
+
     </head>
     <body style=" background-color: #26262c; background-size: cover;">
         <?php require('vista/header.php'); ?>
 
-        <div class="container" style="width: 50%; background-color: whitesmoke; border-radius: 15px; margin-top: 5%;">
-            <form>
-                <fieldset>
-                    <legend style="color: black">Alta de Usuario</legend>
-                    <div class="mb-3">
-                        <label class="form-label">Nombre</label>
-                        <input type="text" class="form-control"/>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Apellidos</label>
-                        <input type="email" class="form-control"/>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1"/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Rol</label>
-                        <input type="text" class="form-control"/>
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Registar</button>
-                    </div>
-                </fieldset>
-            </form>
+        <div>
+            <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
-        <br><br><br>
+        <br>
+        <div class="alert alert-success" role="alert" id="alertG">
+            Usuario registrado con éxito!
+        </div>
+        <div class="alert alert-danger" role="alert" id="alertB">
+            El usuario no se ha podido registrar!
+        </div>
+        <div class="container" style="width: 50%; background-color: #CCCC; border-radius: 15px; margin-top: 1%;">
+            
+            <legend style="color: black">Alta de Usuario</legend>
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" required/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Correo Electrónico</label>
+                <input type="email" class="form-control" id="email" required/>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="pssw" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Rol</label>
+                <select class="form-select" style="text-align: center;" id="rol" required>
+                    <option selected>--Seleccione un Rol--</option>
+                    <option value="admin">Administrador</option>
+                    <option value="profe">Profesor</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary" id="btn">Registar</button>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="./js/insertarUsuario.js"></script>
+        <br>
         <?php require('vista/footer.php'); ?>
 
         <script type="text/javascript" src="js/fade.js"></script>

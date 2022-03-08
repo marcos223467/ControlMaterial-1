@@ -5,6 +5,10 @@
     $password = '';
     $database = 'material';
 
-    $conn = mysqli_connect($server, $username, $password, $database) or die("No se conecta " . mysqli_connect_error());
+    try{
 
+        $conn = new PDO("mysql:host=$server;dbname=$database;", $username, $password);
+    }catch(PDOException $e){
+        die('Conexión fallida: ' . $e->getMessage());
+    }
 ?>
