@@ -8,28 +8,29 @@
         $pssw = $_POST['password'];
 
 		$select = "SELECT * FROM usuarios WHERE email = '$email'";
-		$query = mysqli_query($conn, $select);
-
-		if(mysqli_num_rows($query) == 0)
+		$query = $conn->query($select);
+		$count = $query->rowCount();
+		if ($count != 0)
 		{
-			header('location: ../index.php');
+			foreach ($query as $row)
+			{
+				if ($row['password'] == $pssw)
+				{
+					session_start();
+					$_SESSION["user_id"] = $row['id'];
+					$_SESSION["email"] = $row['email'];
+					$_SESSION["rol"] = $row['rol'];
+					header('location: ../menu.php');	
+				}
+				else
+				{
+					header('location: ../index.php');	
+				}
+			}
 		}
 		else
 		{
-			$fila = mysqli_fetch_assoc($query);
-
-			if($fila['password'] == $pssw)
-			{
-				session_start();
-				$_SESSION["user_id"] = $fila['id'];
-				$_SESSION["email"] = $fila['email'];
-				$_SESSION["rol"] = $fila['rol'];
-				header('location: ../menu.php');
-			}
-			else
-			{
-				header('location: ../index.php');
-			}
+			header('location: ../index.php');
 		}
     }
     else
