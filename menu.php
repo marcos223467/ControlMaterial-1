@@ -96,7 +96,7 @@
 
                     <div class="col">
 
-                        <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
+                        <a href="altaMaterial.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                             <div class="card-header">
                             <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
                         </div>
