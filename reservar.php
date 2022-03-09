@@ -48,12 +48,13 @@
             function cambio(){
                 var material = document.getElementById('mat');
                 var cantidad = document.getElementById('cant');
-                var id_material = document.getElementById('id_material');
 
                 if ($('#mat').val() != "0") {
                     $("#cant").show();
                     material.style.setProperty("width", "14rem");
-                    cantidad.style.setProperty("width", "4rem");   
+                    cantidad.style.setProperty("width", "4rem");
+                    var valMaterial = $("#mat").val();
+                    $("#id_material").val(valMaterial);
                 } else {
                     $("#cant").hide();
                     material.style.setProperty("width", "18rem");
