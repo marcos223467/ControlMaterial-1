@@ -10,31 +10,37 @@ $(document).ready(function() {
         let filename = (Math.random()+1).toString(36).substring(2) + '.' + extension;
         const formData = new FormData();
         formData.append('img', imagen.files[0], filename);
+
         
-        fetch('./controller/subirImg.php', {
+        fetch('controller/subirImg.php', {
             method: 'post',
-            body: JSON.stringify({file: formData})
+            headers: {
+                'Accept' : 'application/json'
+            },
+            body: formData
+        }).then(respuesta => respuesta.text()).then(decodificado =>{
+            console.log(decodificado);
         });
 
         $.ajax({
-            url:"controller/altaMaterial.php",
+            url: "controller/altaMaterial.php",
             type: "POST",
-            data:{
+            data:
+            {
                 categoria: categoria,
                 descripcion: descripcion,
                 cantidad: cantidad,
                 imagen: filename
             },
-            success: function(data){ 
+            success: function(data){
                 setTimeout(function(){
-                    console.log(data);
                     $("#alertG").show();
                     $("#categoria").val("");
                     $("#descripcion").val("");
                     $("#cantidad").val("");
-                    document.getElementById("imagen").value = null;
-                }, 500);
-            },          
+                    $("#imagen").val("");
+                },500)
+            }
         });
 
     });

@@ -29,6 +29,7 @@
         <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/>
         <title>Menú</title>
         <script src="https://kit.fontawesome.com/39f1326549.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/190a2c21e5.js" crossorigin="anonymous"></script>
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="assets/css/estilo.css">
@@ -113,7 +114,7 @@
 
                         <a href="listaUser.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                             <div class="card-header">
-                            <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
+                            <h3><i class="fa-solid fa-user-gear" style="color: #e6e6e6"></i></h3>
                         </div>
                     
                         <div class="card-body">
@@ -127,7 +128,7 @@
 
                         <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
                             <div class="card-header">
-                            <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
+                            <h3><i class="fa-solid fa-gear" style="color: #e6e6e6"></i></h3>
                         </div>
 
                         <div class="card-body">

@@ -17,6 +17,9 @@
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        
         <script>
             function volver(event)
             {
@@ -45,39 +48,41 @@
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
                 <div class="col">
                     <div class="card" style="width: 20rem; display: block; margin: 0 auto;">
-                        <div class="card-header">
-                            Alta de Material
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                                <label class="form-label">Categoria</label>
-                                <select class="form-select" style="text-align: center;" id="categoria">
-                                    <option value="">--Elegir Categoria--</option>
-                                    <option value="legos">Caja de Lego</option>
-                                    <option value="juegos_logica">Juegos de lógica</option>
-                                    <option value="kit_robotica">Kit de Robótica</option>
-                                    <option value="tablet">Tablet</option>
-                                    <option value="ordenador_portatil">Ordenador Portatil</option>
-                                    <option value="robot">Robot</option>
-                                    <option value="varios">Varios</option>
-                                </select>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-label">Descripción</label>
-                                <input type="text" id="descripcion" class="form-control"/>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantidad"/>
-                            </li>
-                            <li class="list-group-item">
-                                <label class="form-label">Imagen</label>
-                                <input class="form-control form-control-sm" type="file" id="imagen">
-                            </li>
-                            <li class="list-group-item">
-                                <button type="button" class="btn btn-primary" id="btn">Registar</button>
-                            </li>
-                        </ul>
+                        <form enctype="multipart/form-data" id="subidaImagen" method="post">
+                            <div class="card-header">
+                                Alta de Material
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <label class="form-label">Categoria</label>
+                                    <select class="form-select" style="text-align: center;" id="categoria">
+                                        <option value="">--Elegir Categoria--</option>
+                                        <option value="legos">Caja de Lego</option>
+                                        <option value="juegos_logica">Juegos de lógica</option>
+                                        <option value="kit_robotica">Kit de Robótica</option>
+                                        <option value="tablet">Tablet</option>
+                                        <option value="ordenador_portatil">Ordenador Portatil</option>
+                                        <option value="robot">Robot</option>
+                                        <option value="varios">Varios</option>
+                                    </select>
+                                </li>
+                                <li class="list-group-item">
+                                    <label class="form-label">Descripción</label>
+                                    <input type="text" id="descripcion" class="form-control"/>
+                                </li>
+                                <li class="list-group-item">
+                                    <label class="form-label">Cantidad</label>
+                                    <input type="number" class="form-control" id="cantidad"/>
+                                </li>
+                                <li class="list-group-item">
+                                    <label class="form-label">Imagen</label>
+                                    <input class="form-control form-control-sm" type="file" id="imagen">
+                                </li>
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-primary" id="btn">Registar</button>
+                                </li>
+                            </ul>
+                        </form>
                     </div>
                 </div>
             </div>

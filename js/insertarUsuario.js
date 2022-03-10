@@ -22,16 +22,25 @@ $(document).ready(function() {
             },
             success: function(data){ 
                 setTimeout(function(){
-                    console.log(data);
                     $("#alertG").show();
                     $("#nombre").val("");
                     $("#apellidos").val("");
                     $("#email").val("");
                     $("#pssw").val("");
                     $("#rol").val("");
-                    //$("#loading").hide();
-                }, 1000);
-            },          
+                }, 500);
+            },
+            error: function()
+            {
+                setTimeout(function(){
+                    $("#alertB").show();
+                    $("#nombre").val("");
+                    $("#apellidos").val("");
+                    $("#email").val("");
+                    $("#pssw").val("");
+                    $("#rol").val("");
+                }, 500);
+            }        
         });
 
     });
