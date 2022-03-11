@@ -63,7 +63,10 @@
                     type:"POST",
 
                     success: function(envio){
-                        console.log(envio);
+                        let envio1 = envio.replace( /\[|\]|\"/gi , "," );
+                        let array = envio1.split(',');
+                        let data = array.filter(Boolean);
+                        console.log(data);
                     },
                 });
 

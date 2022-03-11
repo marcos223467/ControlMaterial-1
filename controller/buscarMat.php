@@ -10,7 +10,7 @@
         foreach ($query as $row) {
             $id = intval($row['id']);
             $categoria = $row['categoria'];
-            $envio = array('id' => $id, 'categoria' => $categoria);
+            $envio = array($id, $categoria);
             echo json_encode($envio);
         }
     }
