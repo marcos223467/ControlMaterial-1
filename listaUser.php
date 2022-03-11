@@ -79,33 +79,34 @@
                         echo "<td>"; echo $email[$i]; echo "</td>";
                         echo "<td>"; echo $rol[$i]; echo "</td>";
                         echo "<td>"; echo "<a href='#'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
-                        echo "<button class='btn' aria-hidden='true' data-bs-toggle='modal' data-bs-target='$i'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
+                        echo "<button class='btn' aria-hidden='true' data-bs-toggle='modal' data-bs-target='myModal'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
                         echo "</td>";
                         echo "</tr>";
                         echo "</button>";
-
-                        /*echo "<div className='modal fade' id='$i' tabIndex='-1' role='dialog'>";
-                        echo "<div className='modal-dialog' role='document'>";
-                        echo "<div className='modal-content'>";
-                        echo "<div className='modal-header'>";
-                        echo "<button id='cerrar' type='button' className='btn-close' data-bs-dismiss='modal'  aria-label='Close'>";
-                        echo "<span aria-hidden='true'>&times;</span>";
-                        echo "</button>";
-                        echo "<h4 id='titulo' className='modal-title'>Eliminar usuario</h4>";
-                        echo "</div>";
-                        echo "<div className='modal-body'>";
-                        echo "<p>¿Estás seguro de querer eliminar este usuario?</p>";
-                        echo "</div>";
-                        echo "<div className='modal-footer'>";
-                        echo "<button id='eliminar' type='button' className='btn btn-default' data-dismiss='modal'>Eliminar</button>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";
-                        echo "</div>";*/
                     }
                 ?>
             </tbody>
         </table>
+
+        <!--<div className="modal fade" id="myModal" tabIndex="-1" role="dialog">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <button id="cerrar" type="button" className="btn-close" data-bs-dismiss="modal"  aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 id="titulo" className="modal-title">Eliminar usuario</h4>
+                    </div>
+                    <div className="modal-body">
+                        <p>¿Estás seguro de querer eliminar este usuario?</p>
+                    </div>
+                    <div className="modal-footer">
+                        <button id="eliminar" type="button" className="btn btn-default" 
+                                data-dismiss="modal">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>-->
         <?php require('vista/footer.php'); ?>
     </body>
 </html>
