@@ -40,24 +40,44 @@
         <script>
             $(document).ready(function(){
 
-                categoria();
-                cantidad();
+                //Variables globales
+                var valMaterial = '';
+                var cantidades = 0;
+
+                //Funciones
+                categoria(valMaterial, cantidades);
+
+                //NO FUNCIONA!!
+                const mas = document.getElementById("mas");
+                mas.onclick = categoria;
+
+                //Estilo
                 $("#cant").hide();
                 $("#mas").hide();
                 mat.style.setProperty("width", "18rem");
 
+
+
             });
 
-            function categoria(){
+            function categoria(valMaterial, cantidades){
 
+                //Crear select materiales
                 const mat = document.createElement('select');
                 mat.id='mat';
                 mat.name='mat';
                 mat.className='mb-1';
-                mat.style.setProperty("width", "14rem");
-                mat.style.setProperty("margin-right", "0.3rem");
                 $("#selects").append(mat);
 
+                //Crear select cantidades
+                const cant = document.createElement('select');
+                cant.id='cant';
+                cant.name='cant';
+                cant.className='mb-1';
+                cant.style.setProperty("width", "4rem");
+                $("#selects").append(cant);
+
+                //Consulta materiales
                 $.ajax({
                     url:"controller/buscarMat.php",
                     type:"POST",
@@ -66,28 +86,44 @@
                         let envio1 = envio.replace( /\[|\]|\"/gi , "," );
                         let array = envio1.split(',');
                         let data = array.filter(Boolean);
-                        console.log(data);
-                    },
-                });
 
-                document.getElementById('select');
-                var otromatopt = document.createElement('option');
-                otromatopt.value='<?php echo $id; ?>';
-                otromatopt.innerHTML = '<?php echo $categoria; ?>';
-                $("#mat").append(otromatopt);
+                        var matopt1 = document.createElement('option');
+                        matopt1.value = "";
+                        matopt1.innerHTML = "-- Elije un material --";
+                        $("#mat").append(matopt1);
+                        
+                        for( let i = 0; i < data.length; i++){
+                            if( i%2 == 0 ){
+                                var matopt = document.createElement('option');
+                                matopt.value = data[i];
+                            } else {
+                                matopt.innerHTML = data[i];
+                            };
+                            $("#mat").append(matopt);
+                        };
+                    },
+                });                
+
+                //Evento cambio de material
+                mat.addEventListener('change', (event) => {
+                    valMaterial = $("#mat").val();
+                    if ( $("#mat").val() == "" ) {
+                        $("#cant").hide();
+                        $("#mas").hide();
+                        mat.style.setProperty("width", "18rem");
+                    } else {
+                        $("#mas").show();
+                        $("#cant").show();
+                        mat.style.setProperty("width", "14rem");
+                        mat.style.setProperty("margin-right", "0.3rem");
+                        
+                        cantidad(valMaterial, cantidades);
+                    }
+                });
 
             };
 
-            function cantidad(){
-
-                const cant = document.createElement('select');
-                cant.id='cant';
-                cant.name='cant';
-                cant.className='mb-1';
-                cant.style.setProperty("width", "4rem");
-                $("#selects").append(cant);
-
-                var valMaterial = $("#mat").val();
+            function cantidad(valMaterial, cantidades){
 
                 $.ajax({
                     url:"controller/buscarCant.php",
@@ -95,36 +131,21 @@
                     data:{
                         id: valMaterial,
                     },
-                    success: function(cant){
+                    success: function(can){
+                        cantidades = can;
                         var select = document.getElementById("cant");
                         while (select.firstChild) {
                             select.removeChild(select.firstChild);
                         }
-                        for (let index = 1; index <= cant; index++) {
+                        for (let index = 1; index <= can; index++) {
                             var option = document.createElement("option");
                             option.value = index;
                             option.innerHTML = index;
                             select.appendChild(option);
                         }
+                        console.log(can);
                     },
                 });
-            };
-
-            function cambio(){
-                var material = document.getElementById('mat');
-                var cantidad = document.getElementById('cant');
-
-                if ($('#mat').val() != "0") {
-                    $("#cant").show();
-                    $("#mas").show();
-                    material.style.setProperty("width", "14rem");
-                    cantidad.style.setProperty("width", "4rem");
-                    cantidad();
-                } else {
-                    $("#cant").hide();
-                    $("#mas").hide();
-                    material.style.setProperty("width", "18rem");
-                }
             };
         </script>
 
@@ -146,8 +167,8 @@
             <p class="card-text">Hora de la devolución:</p>
             <p class="card-text"><input type="time" name="hdevolucion" id="hdevolucion"></p>
             <p class="card-text">Elije material y cantidad:</p>
-            <p class="card-text" id="selects"></p>
-            <button type="button" class="btn btn-success mb-3" id="mas"><i class="fas fa-thin fa-plus"></i></button><br>
+            <div class="card-text" id="selects"></div>
+            <button type="button" class="btn btn-success mb-3" id="mas" onclick="categoria(valMaterial, cantidades)"><i class="fas fa-thin fa-plus"></i></button><br>
             <button class="btn btn-dark" type="button" id="btn">Reservar</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

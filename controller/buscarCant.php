@@ -12,8 +12,8 @@
         if ($count != 0) {
             foreach ($query as $row) {
                 $cantstr = $row['cantidad'];
-                $cant = intval($cantstr);
-                echo json_encode($cant);
+                $can = intval($cantstr);
+                echo json_encode($can);
             }
         }
     }
