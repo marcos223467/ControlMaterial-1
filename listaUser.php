@@ -71,7 +71,6 @@
                 <?php
                     for($i = 0; $i < $count; $i++)
                     {
-                        echo "<button class='btn' aria-hidden='true' data-bs-toggle='modal' data-bs-target='$i'>";
                         echo "<tr>";
                         echo "<th scope='row'>"; echo$i+1; echo "</th>";
                         echo "<td>"; echo $nombres[$i]; echo "</td>";
@@ -79,34 +78,38 @@
                         echo "<td>"; echo $email[$i]; echo "</td>";
                         echo "<td>"; echo $rol[$i]; echo "</td>";
                         echo "<td>"; echo "<a href='#'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
-                        echo "<button class='btn' aria-hidden='true' data-bs-toggle='modal' data-bs-target='myModal'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
+                        echo "<button class='btn' data-toggle='modal' data-target='#eliminar<?php echo $i; ?>'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
                         echo "</td>";
                         echo "</tr>";
-                        echo "</button>";
+                        echo "<div class='modal fade' id='eliminar<?php echo $i; ?>' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
+                        echo "<div class='modal-dialog' role='document'>";
+                        echo  "<div class='modal-content'>";
+                        echo    "<div class='modal-header'>";
+                        echo        "<h4 class='modal-title'>";
+                        echo            "Eliminar Usuario";
+                        echo        "</h4>";
+                        echo    "</div>";
+                    
+                        echo   "<div class='modal-body'>";
+                        echo     "<strong style='text-align: center !important'>"; 
+                        echo       "alguien";
+                            
+                        echo      "</strong>";
+                        echo    "</div>";
+                            
+                        echo    "<div class='modal-footer'>";
+                        echo      "<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
+                        echo      "<button type='submit' class='btn btn-danger btnBorrar' data-dismiss='modal' id='<?php echo $i; ?>'>Borrar</button>";
+                        echo    "</div>";
+                            
+                        echo    "</div>";
+                        echo  "</div>";
+                        echo "</div>";
                     }
                 ?>
             </tbody>
         </table>
 
-        <!--<div className="modal fade" id="myModal" tabIndex="-1" role="dialog">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <button id="cerrar" type="button" className="btn-close" data-bs-dismiss="modal"  aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 id="titulo" className="modal-title">Eliminar usuario</h4>
-                    </div>
-                    <div className="modal-body">
-                        <p>¿Estás seguro de querer eliminar este usuario?</p>
-                    </div>
-                    <div className="modal-footer">
-                        <button id="eliminar" type="button" className="btn btn-default" 
-                                data-dismiss="modal">Eliminar</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
         <?php require('vista/footer.php'); ?>
     </body>
 </html>
