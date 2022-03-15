@@ -43,39 +43,60 @@
                 //Variables globales
                 var valMaterial = '';
                 var cantidades = 0;
+                var ids = 0;
+                var n = "mat"+ids;
+                var y = "cant"+ids;
+                var n1 = "#"+n;
+                var y1 = "#"+y;
 
                 //Funciones
-                categoria(valMaterial, cantidades);
+                categoria(valMaterial, cantidades, ids, n, n1, y, y1);
 
                 //NO FUNCIONA!!
                 const mas = document.getElementById("mas");
-                mas.onclick = categoria;
+                function click(){
+                    ids = ids+1;
+                    n = "mat"+ids;
+                    y = "cant"+ids;
+                    n1 = "#"+n;
+                    y1 = "#"+y;
+                    categoria(valMaterial, cantidades, ids, n, n1, y, y1)
+                };
+                mas.onclick = click;
 
                 //Estilo
-                $("#cant").hide();
                 $("#mas").hide();
-                mat.style.setProperty("width", "18rem");
+
 
 
 
             });
 
-            function categoria(valMaterial, cantidades){
+            function categoria(valMaterial, cantidades, ids, n, n1, y, y1){
 
                 //Crear select materiales
-                const mat = document.createElement('select');
-                mat.id='mat';
-                mat.name='mat';
-                mat.className='mb-1';
+                var mat = document.createElement('select');
+
+                mat.id = n;
+                mat.name = n;
+                mat.className = 'mb-1';
+                mat.style.setProperty("width", "18rem");
                 $("#selects").append(mat);
 
+                console.log(document.getElementById(n));
+
                 //Crear select cantidades
-                const cant = document.createElement('select');
-                cant.id='cant';
-                cant.name='cant';
+                var cant = document.createElement('select');
+
+                cant.id = y;
+                cant.name = y;
                 cant.className='mb-1';
                 cant.style.setProperty("width", "4rem");
                 $("#selects").append(cant);
+                $(y1).hide();
+
+                //Variables de objetos
+                var categoria = document.getElementById(n);
 
                 //Consulta materiales
                 $.ajax({
@@ -90,7 +111,7 @@
                         var matopt1 = document.createElement('option');
                         matopt1.value = "";
                         matopt1.innerHTML = "-- Elije un material --";
-                        $("#mat").append(matopt1);
+                        categoria.append(matopt1);
                         
                         for( let i = 0; i < data.length; i++){
                             if( i%2 == 0 ){
@@ -99,31 +120,33 @@
                             } else {
                                 matopt.innerHTML = data[i];
                             };
-                            $("#mat").append(matopt);
+                            categoria.append(matopt);
                         };
                     },
                 });                
 
                 //Evento cambio de material
                 mat.addEventListener('change', (event) => {
-                    valMaterial = $("#mat").val();
-                    if ( $("#mat").val() == "" ) {
-                        $("#cant").hide();
+                    valMaterial = $(n1).val();
+                    if ( valMaterial == "" ) {
+                        $(y1).hide();
                         $("#mas").hide();
                         mat.style.setProperty("width", "18rem");
+                        mat.style.setProperty("margin-right", "0rem");
                     } else {
                         $("#mas").show();
-                        $("#cant").show();
-                        mat.style.setProperty("width", "14rem");
+                        $(y1).show();
+                        mat.style.setProperty("width", "13.7rem");
                         mat.style.setProperty("margin-right", "0.3rem");
                         
-                        cantidad(valMaterial, cantidades);
+                        cantidad(valMaterial, cantidades, ids, n, n1, y, y1);
                     }
                 });
-
             };
 
-            function cantidad(valMaterial, cantidades){
+            function cantidad(valMaterial, cantidades, ids, n, n1, y, y1){
+
+                //Variable de objeto
 
                 $.ajax({
                     url:"controller/buscarCant.php",
@@ -133,17 +156,25 @@
                     },
                     success: function(can){
                         cantidades = can;
-                        var select = document.getElementById("cant");
-                        while (select.firstChild) {
-                            select.removeChild(select.firstChild);
+                        var cantidad1 = document.getElementById(y)
+                        console.log(cantidades);
+
+                        while (cantidad1.firstChild) {
+                            cantidad1.removeChild(cantidad1.firstChild);
                         }
-                        for (let index = 1; index <= can; index++) {
+                        if (can == 0) {
                             var option = document.createElement("option");
-                            option.value = index;
-                            option.innerHTML = index;
-                            select.appendChild(option);
+                            option.value = 0;
+                            option.innerHTML = "N/D";
+                            cantidad1.appendChild(option);
+                        } else {
+                            for (let index = 1; index <= can; index++) {
+                                var option = document.createElement("option");
+                                option.value = index;
+                                option.innerHTML = index;
+                                cantidad1.appendChild(option);
+                            }
                         }
-                        console.log(can);
                     },
                 });
             };
