@@ -48,11 +48,27 @@
                 var y = "cant"+ids;
                 var n1 = "#"+n;
                 var y1 = "#"+y;
+                var fecha = document.getElementById("reserva");
+                var horaInicio = document.getElementById("hreserva");
+                var horaFin = document.getElementById("hdevolucion");
 
-                //Funciones
-                categoria(valMaterial, cantidades, ids, n, n1, y, y1);
+                //Funciones (ARREGLAR!!)
+                if (fecha.value != "" && horaInicio.value != "" && horaFin != "") {
+                    $("#titulo").show();
+                    fecha.addEventListener("change", (event) => {
+                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
+                    });
+                    horaInicio.addEventListener("change", (event) => {
+                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
+                    });
+                    horaFin.addEventListener("change", (event) => {
+                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
+                    });
+                } else {
+                    $("#titulo").show();
+                }
 
-                //NO FUNCIONA!!
+                //Añadir material
                 const mas = document.getElementById("mas");
                 function click(){
                     ids = ids+1;
@@ -66,9 +82,7 @@
 
                 //Estilo
                 $("#mas").hide();
-
-
-
+                $("#titulo").hide();
 
             });
 
@@ -82,8 +96,6 @@
                 mat.className = 'mb-1';
                 mat.style.setProperty("width", "18rem");
                 $("#selects").append(mat);
-
-                console.log(document.getElementById(n));
 
                 //Crear select cantidades
                 var cant = document.createElement('select');
@@ -102,6 +114,9 @@
                 $.ajax({
                     url:"controller/buscarMat.php",
                     type:"POST",
+                    data:{
+                        
+                    },
 
                     success: function(envio){
                         let envio1 = envio.replace( /\[|\]|\"/gi , "," );
@@ -157,7 +172,6 @@
                     success: function(can){
                         cantidades = can;
                         var cantidad1 = document.getElementById(y)
-                        console.log(cantidades);
 
                         while (cantidad1.firstChild) {
                             cantidad1.removeChild(cantidad1.firstChild);
@@ -197,7 +211,7 @@
             <p class="card-text"><input type="time" name="hreserva" id="hreserva"></p>
             <p class="card-text">Hora de la devolución:</p>
             <p class="card-text"><input type="time" name="hdevolucion" id="hdevolucion"></p>
-            <p class="card-text">Elije material y cantidad:</p>
+            <p class="card-text" id="titulo">Elije material y cantidad:</p>
             <div class="card-text" id="selects"></div>
             <button type="button" class="btn btn-success mb-3" id="mas" onclick="categoria(valMaterial, cantidades)"><i class="fas fa-thin fa-plus"></i></button><br>
             <button class="btn btn-dark" type="button" id="btn">Reservar</button>
