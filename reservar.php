@@ -51,22 +51,48 @@
                 var fecha = document.getElementById("reserva");
                 var horaInicio = document.getElementById("hreserva");
                 var horaFin = document.getElementById("hdevolucion");
+                var selects = document.getElementById("selects");
 
                 //Funciones (ARREGLAR!!)
-                if (fecha.value != "" && horaInicio.value != "" && horaFin != "") {
-                    $("#titulo").show();
-                    fecha.addEventListener("change", (event) => {
-                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
-                    });
-                    horaInicio.addEventListener("change", (event) => {
-                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
-                    });
-                    horaFin.addEventListener("change", (event) => {
-                        categoria(valMaterial, cantidades, ids, n, n1, y, y1);
-                    });
-                } else {
-                    $("#titulo").show();
-                }
+                fecha.addEventListener("change", (event) => {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $("#titulo").show();
+                        if (!selects.firstChild) {
+                            categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
+                        }
+                    } else {
+                        $("#titulo").hide();
+                        while (selects.firstChild) {
+                            selects.removeChild(selects.firstChild);
+                        }
+                    }
+                });
+                horaInicio.addEventListener("change", (event) => {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $("#titulo").show();
+                        if (!selects.firstChild) {
+                            categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
+                        }
+                    } else {
+                        $("#titulo").hide();
+                        while (selects.firstChild) {
+                            selects.removeChild(selects.firstChild);
+                        }
+                    }
+                });
+                horaFin.addEventListener("change", (event) => {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $("#titulo").show();
+                        if (!selects.firstChild) {
+                            categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
+                        }
+                    } else {
+                        $("#titulo").hide();
+                        while (selects.firstChild) {
+                            selects.removeChild(selects.firstChild);
+                        }
+                    }
+                });
 
                 //Añadir material
                 const mas = document.getElementById("mas");
@@ -76,7 +102,7 @@
                     y = "cant"+ids;
                     n1 = "#"+n;
                     y1 = "#"+y;
-                    categoria(valMaterial, cantidades, ids, n, n1, y, y1)
+                    categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
                 };
                 mas.onclick = click;
 
@@ -86,7 +112,7 @@
 
             });
 
-            function categoria(valMaterial, cantidades, ids, n, n1, y, y1){
+            function categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin){
 
                 //Crear select materiales
                 var mat = document.createElement('select');
@@ -115,10 +141,13 @@
                     url:"controller/buscarMat.php",
                     type:"POST",
                     data:{
-                        
+                        fecha: fecha.value,
+                        horaInicio: horaInicio.value,
+                        horaFin: horaFin.value,
                     },
 
                     success: function(envio){
+                        console.log(envio)
                         let envio1 = envio.replace( /\[|\]|\"/gi , "," );
                         let array = envio1.split(',');
                         let data = array.filter(Boolean);
