@@ -1,3 +1,28 @@
+<?php
+    require 'database.php';
+    error_reporting(0);
+    session_start();
+
+    $id = $_GET["id"];
+    
+    $select = "SELECT * FROM usuarios WHERE id = '$id'";
+    $query = $conn->query($select);
+    $count = $query->rowCount();
+    if ($count != 0)
+    {
+        foreach ($query as $row)
+        {
+            $nombre =  $row['nombre'];
+            $apellidos = $row['apellidos'];
+            $email = $row['email'];
+            $rol = $row['rol'];
+            
+        }
+
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +46,7 @@
             function volver(event)
             {
                 event.preventDefault();
-                window.location.href="menu.php";
+                window.location.href="listaUser.php";
             }
         </script>
 
@@ -33,12 +58,8 @@
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
         <br>
-        <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertG">
-            Usuario registrado con éxito!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertB">
-            El usuario no se ha podido registrar!
+            El usuario no se ha podido editar!
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <div class="container">
@@ -46,41 +67,48 @@
                 <div class="col">
                     <div class="card" style="width: 20rem; display: block; margin: 0 auto;">
                         <div class="card-header">
-                                Alta de Usuario
-                            </div>
+                                Editar Usuario
+                        </div>
+                        <input id="id" type="hidden" value="<?php echo $id;?>"/>
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" required style="width: 15rem; display: block; margin: 0 auto;"/>
+                            <input type="text" class="form-control" id="nombre" required style="width: 15rem; display: block; margin: 0 auto;" value="<?php echo $nombre; ?>"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="apellidos" required style="width: 15rem; display: block; margin: 0 auto;"/>
+                            <input type="text" class="form-control" id="apellidos" required style="width: 15rem; display: block; margin: 0 auto;" value="<?php echo $apellidos; ?>"/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" required style="width: 15rem; display: block; margin: 0 auto;"/>
+                            <input type="email" class="form-control" id="email" required style="width: 15rem; display: block; margin: 0 auto;" value="<?php echo $email; ?>"/>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" id="pssw" required style="width: 15rem; display: block; margin: 0 auto;">
-                        </div>
+                        
                         <div class="mb-3">
                             <label class="form-label">Rol</label>
                             <select class="form-select" style="text-align: center; width: 15rem; display: block; margin: 0 auto;" id="rol" required>
-                                <option selected>--Seleccione un Rol--</option>
-                                <option value="admin">Administrador</option>
-                                <option value="profe">Profesor</option>
+                                <?php
+                                    if($rol == "admin")
+                                    {
+                                        echo "<option value='admin' selected> Administrador </option>";
+                                        echo "<option value=profe> Profesor </option>";
+                                    }
+                                    else
+                                    {
+                                        echo "<option value='admin'> Administrador </option>";
+                                        echo "<option value=profe selected> Profesor </option>";
+                                    }
+                                ?>
                             </select>
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-primary" id="btn">Registar</button>
+                            <button type="button" class="btn btn-primary" id="btn">Editar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="./js/insertarUsuario.js"></script>
+        <script src="./js/editarUsuario.js"></script>
         <br>
         <?php require('vista/footer.php'); ?>
 

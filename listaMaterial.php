@@ -4,11 +4,11 @@
     session_start();
 
     $ids = array();
-    $nombres = array();
-    $apellidos = array();
-    $email = array();
-    $rol = array();
-    $select = "SELECT * FROM usuarios";
+    $descripcion = array();
+    $cantidad = array();
+    $categoria = array();
+    $img = array();
+    $select = "SELECT * FROM material";
     $query = $conn->query($select);
     $count = $query->rowCount();
     if ($count != 0)
@@ -16,10 +16,10 @@
         foreach ($query as $row)
         {
             array_push($ids, $row['id']);
-            array_push($nombres, $row['nombre']);
-            array_push($apellidos, $row['apellidos']);
-            array_push($email, $row['email']);
-            array_push($rol, $row['rol']);
+            array_push($descripcion, $row['descripcion']);
+            array_push($cantidad, $row['cantidad']);
+            array_push($categoria, $row['categoria']);
+            array_push($img, $row['imagen']);
         }
     }
 ?>
@@ -62,10 +62,10 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rol</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Imagen</th>
                 <th scope="col"></th>
                 </tr>
             </thead>
@@ -75,11 +75,11 @@
                     {
                         echo "<tr>";
                         echo "<th scope='row'>"; echo$i+1; echo "</th>";
-                        echo "<td>"; echo $nombres[$i]; echo "</td>";
-                        echo "<td>"; echo $apellidos[$i]; echo "</td>";
-                        echo "<td>"; echo $email[$i]; echo "</td>";
-                        echo "<td>"; echo $rol[$i]; echo "</td>";
-                        echo "<td>"; echo "<a href='editar_usuario.php?id=$ids[$i]'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
+                        echo "<td>"; echo $descripcion[$i]; echo "</td>";
+                        echo "<td>"; echo $cantidad[$i]; echo "</td>";
+                        echo "<td>"; echo $categoria[$i]; echo "</td>";
+                        echo "<td>"; echo $img[$i]; echo "</td>";
+                        echo "<td>"; echo "<a href='editarMaterial.php?id=$ids[$i]'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
                         echo "<button class='btn' data-toggle='modal' data-target='#eliminar<?php echo $i; ?>'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
                         echo "</td>";
                         echo "</tr>";
