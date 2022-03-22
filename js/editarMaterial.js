@@ -7,7 +7,7 @@ $(document).ready(function() {
         let cantidad = $("#cantidad").val();
         let imagen = document.getElementById("imagen");
         var filename =  $("#img").val();
-        if(imagen != null)
+        if(imagen.files[0] != null)
         {
             let extension = imagen.files[0].name.split('.').pop();
             filename = (Math.random()+1).toString(36).substring(2) + '.' + extension;

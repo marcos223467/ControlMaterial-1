@@ -61,12 +61,12 @@
         <table class="table table-hover" style=" background-color: white;">
             <thead>
                 <tr>
-                <th scope="col">#</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Categoria</th>
-                <th scope="col">Imagen</th>
-                <th scope="col"></th>
+                    <th scope="col">#</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -78,35 +78,10 @@
                         echo "<td>"; echo $descripcion[$i]; echo "</td>";
                         echo "<td>"; echo $cantidad[$i]; echo "</td>";
                         echo "<td>"; echo $categoria[$i]; echo "</td>";
-                        echo "<td>"; echo $img[$i]; echo "</td>";
-                        echo "<td>"; echo "<a href='editarMaterial.php?id=$ids[$i]'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
-                        echo "<button class='btn' data-toggle='modal' data-target='#eliminar<?php echo $i; ?>'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
+                        echo "<td>"; echo "<img src='imagenes/$img[$i]' class='rounded float-start' width='150' alt=''></img>"; echo "</td>";
+                        echo "<td>"; echo "<a href='editarMaterial.php?id=$ids[$i]' style='font-size: 30px; text-align: center;'>     <i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
                         echo "</td>";
                         echo "</tr>";
-                        echo "<div class='modal fade' id='eliminar<?php echo $i; ?>' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
-                        echo "<div class='modal-dialog' role='document'>";
-                        echo  "<div class='modal-content'>";
-                        echo    "<div class='modal-header'>";
-                        echo        "<h4 class='modal-title'>";
-                        echo            "Eliminar Usuario";
-                        echo        "</h4>";
-                        echo    "</div>";
-                    
-                        echo   "<div class='modal-body'>";
-                        echo     "<strong style='text-align: center !important'>"; 
-                        echo       "alguien";
-                            
-                        echo      "</strong>";
-                        echo    "</div>";
-                            
-                        echo    "<div class='modal-footer'>";
-                        echo      "<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
-                        echo      "<button type='submit' class='btn btn-danger btnBorrar' data-dismiss='modal' id='<?php echo $i; ?>'>Borrar</button>";
-                        echo    "</div>";
-                            
-                        echo    "</div>";
-                        echo  "</div>";
-                        echo "</div>";
                     }
                 ?>
             </tbody>

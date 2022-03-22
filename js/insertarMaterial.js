@@ -6,21 +6,25 @@ $(document).ready(function() {
         let descripcion = $("#descripcion").val();
         let cantidad = $("#cantidad").val();
         let imagen = document.getElementById("imagen");
-        let extension = imagen.files[0].name.split('.').pop();
-        let filename = (Math.random()+1).toString(36).substring(2) + '.' + extension;
-        const formData = new FormData();
-        formData.append('img', imagen.files[0], filename);
+        var filename = "default.png";
+        if(imagen.files[0] != null)
+        {
+            let extension = imagen.files[0].name.split('.').pop();
+            filename = (Math.random()+1).toString(36).substring(2) + '.' + extension;
+            const formData = new FormData();
+            formData.append('img', imagen.files[0], filename);
 
         
-        fetch('controller/subirImg.php', {
-            method: 'post',
-            headers: {
-                'Accept' : 'application/json'
-            },
-            body: formData
-        }).then(respuesta => respuesta.text()).then(decodificado =>{
-            console.log(decodificado);
-        });
+            fetch('controller/subirImg.php', {
+                method: 'post',
+                headers: {
+                    'Accept' : 'application/json'
+                },
+                body: formData
+            }).then(respuesta => respuesta.text()).then(decodificado =>{
+                console.log(decodificado);
+            });
+        }
 
         $.ajax({
             url: "controller/altaMaterial.php",
