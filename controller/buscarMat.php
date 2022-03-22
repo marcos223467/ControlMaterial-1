@@ -3,8 +3,6 @@
     require '../database.php';
     session_start();
 
-    //FALTA TERMINAR!!
-
     if ($_POST['fecha'] != "" && $_POST['horaInicio'] != "" && $_POST['horaFin'] != "") {
         $fecha = $_POST['fecha'];
         $horaInicio = $_POST['horaInicio'];
@@ -28,8 +26,16 @@
             }
         }
     } else {
-        $envio = "error";
-        echo json_encode($envio);
+
+        //FALTA TERMINAR!! (NO FUNCIONA)
+
+        $select2 = "SELECT cantidad_y_material FROM reservas WHERE hora_inicio < hora_fin AND ((hora_inicio < $horaInicio AND hora_fin < $horaInicio) OR (hora_inicio > $horaFin AND hora_fin > $horaFin))"
+        $query2 = $conn->query($select2);
+        foreach ($query2 as $row2) {
+            $cantymat = $row2['cantidad_y_material'];
+            echo "<script>console.log($cantymat)</script>"
+        }
+        //echo json_encode($envio);
     }
 
 ?>
