@@ -116,6 +116,7 @@
 
                 //Crear select materiales
                 var mat = document.createElement('select');
+                console.log(n);
 
                 mat.id = n;
                 mat.name = n;
@@ -147,7 +148,8 @@
                     },
 
                     success: function(envio){
-                        console.log(envio)
+                        console.log(envio);
+
                         let envio1 = envio.replace( /\[|\]|\"/gi , "," );
                         let array = envio1.split(',');
                         let data = array.filter(Boolean);
@@ -242,7 +244,7 @@
             <p class="card-text"><input type="time" name="hdevolucion" id="hdevolucion"></p>
             <p class="card-text" id="titulo">Elije material y cantidad:</p>
             <div class="card-text" id="selects"></div>
-            <button type="button" class="btn btn-success mb-3" id="mas" onclick="categoria(valMaterial, cantidades)"><i class="fas fa-thin fa-plus"></i></button><br>
+            <button type="button" class="btn btn-success mb-3" id="mas"><i class="fas fa-thin fa-plus"></i></button><br>
             <button class="btn btn-dark" type="button" id="btn">Reservar</button>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

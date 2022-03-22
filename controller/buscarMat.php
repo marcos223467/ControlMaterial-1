@@ -28,7 +28,8 @@
             }
         }
     } else {
-
+        $envio = "error";
+        echo json_encode($envio);
     }
 
 ?>
