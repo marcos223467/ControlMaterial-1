@@ -18,7 +18,34 @@
             header("location: index.php");
         }
 
+        $id_reservas = array();
+        $fecha_inicio = array();
+        $hora_inicio = array();
+        $hora_fin = array();
+        $cant_mat = array();
+        $cant_mat_aux = array();
+        $id_user = array();
+        $id_material = array();
+        $select = "SELECT * FROM reservas";
+        $query = $conn->query($select);
+        $count = $query->rowCount();
+        if ($count != 0)
+        {
+            foreach ($query as $row)
+            {
+                array_push($id_reservas, $row['id']);
+                array_push($fecha_inicio, $row['fecha_inicio']);
+                array_push($hora_inicio, $row['hora_inicio']);
+                array_push($hora_fin, $row['hora_fin']);
+                array_push($id_user, $row['id_user']);
+                foreach(json_decode($row['cantidad_y_material']) as $col => $value)
+                {
+                    echo "<script> console.log(".$value['id']."); </script>";
+                }
+            }
+        }
 
+        echo "<script> console.log(".$cant_mat[0]."); </script>";
 ?>
 
     <!DOCTYPE html>
@@ -47,51 +74,30 @@
         </div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
-                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
-                    <div class="card-header">prueba@prueba.com</div>
-                    <div class="card-body">
-                        <p class="card-text">Reservado el 07/03/2022</p>
-                        <h5 class="card-title">10/03/2022</h5>
-                        <p class="card-text">...</p>
-                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
-                    </div>
-                </div>
-                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
-                    <div class="card-header">prueba@prueba.com</div>
-                    <div class="card-body">
-                        <p class="card-text">Reservado el 07/03/2022</p>
-                        <h5 class="card-title">10/03/2022</h5>
-                        <p class="card-text">...</p>
-                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
-                    </div>
-                </div>
-                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
-                    <div class="card-header">prueba@prueba.com</div>
-                    <div class="card-body">
-                        <p class="card-text">Reservado el 07/03/2022</p>
-                        <h5 class="card-title">10/03/2022</h5>
-                        <p class="card-text">...</p>
-                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
-                    </div>
-                </div>
-                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
-                    <div class="card-header">prueba@prueba.com</div>
-                    <div class="card-body">
-                        <p class="card-text">Reservado el 07/03/2022</p>
-                        <h5 class="card-title">10/03/2022</h5>
-                        <p class="card-text">...</p>
-                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
-                    </div>
-                </div>
-                <div class="card text-dark bg-light mb-5 col mx-auto" style="max-width: 22rem;">
-                    <div class="card-header">prueba@prueba.com</div>
-                    <div class="card-body">
-                        <p class="card-text">Reservado el 07/03/2022</p>
-                        <h5 class="card-title">10/03/2022</h5>
-                        <p class="card-text">...</p>
-                        <p class="card-text">Hora inicio 12:00 Hora fin 17:00</p>
-                    </div>
-                </div>
+                <?php
+                    for($i = 0; $i < $count; $i++)
+                    {
+                        $select = "SELECT * FROM usuarios WHERE id = '$id_user[$i]'" ;
+                        $query = $conn->query($select);
+                        $count2 = $query->rowCount();
+                        $email = "";
+                        if($count2 != 0)
+                        {
+                            foreach ($query as $row)
+                            {
+                                $email = $row['email'];
+                            }
+                            echo "<div class='card text-dark bg-light mb-5 col mx-auto' style='max-width: 22rem;'>";
+                                echo "<div class='card-header'>"; echo $email; echo "</div>";
+                                echo "<div class='card-body'>";
+                                    echo "<p class='card-text'>Reservado el "; echo $fecha_inicio[$i]; echo "</p>";
+                                    echo "<h5 class='card-title'>Hora inicio: "; echo $hora_inicio[$i]; echo "</h5>";
+                                    echo "<h5 class='card-title'>Hora fin: "; echo $hora_fin[$i]; echo "</h5>";
+                                echo "</div>";
+                            echo "</div>";
+                        }
+                    }
+                ?>
             </div>
         </div>
     </body>
