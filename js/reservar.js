@@ -11,7 +11,9 @@ $(document).ready(function() {
             let cant1 = "#cant"+i;
             let mat = $(mat1).val();
             let cant = $(cant1).val();
-            array.push({'id' : mat, 'cant' : cant});
+            if (cant != null && cant != "null") {
+                array.push({'id' : mat, 'cant' : cant}); 
+            }
         }
         var matycant = JSON.stringify(array);
         console.log(matycant);

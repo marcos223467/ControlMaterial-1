@@ -209,7 +209,7 @@
                         }
                         if (can == 0) {
                             var option = document.createElement("option");
-                            option.value = 0;
+                            option.value = null;
                             option.innerHTML = "N/D";
                             cantidad1.appendChild(option);
                         } else {
