@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    $("#alertG").hide();
     $("#alertB").hide();
     $('#btn').click(function(){
+        let id = $("#id").val();
         let categoria = $("#categoria").val();
         let descripcion = $("#descripcion").val();
         let cantidad = $("#cantidad").val();
         let imagen = document.getElementById("imagen");
-        var filename = "default.png";
+        var filename =  $("#img").val();
         if(imagen.files[0] != null)
         {
             let extension = imagen.files[0].name.split('.').pop();
@@ -25,24 +25,22 @@ $(document).ready(function() {
                 console.log(decodificado);
             });
         }
+        
 
         $.ajax({
-            url: "controller/altaMaterial.php",
+            url: "controller/editarMaterial.php",
             type: "POST",
             data:
             {
+                id: id,
                 categoria: categoria,
                 descripcion: descripcion,
                 cantidad: cantidad,
-                imagen: filename
+                imagen: filename,
             },
             success: function(data){
                 setTimeout(function(){
-                    $("#alertG").show();
-                    $("#categoria").val("");
-                    $("#descripcion").val("");
-                    $("#cantidad").val("");
-                    $("#imagen").val("");
+                    window.history.back();
                 },500)
             }
         });

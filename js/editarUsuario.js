@@ -1,42 +1,30 @@
 $(document).ready(function() {
-    $("#alertG").hide();
     $("#alertB").hide();
     $('#btn').click(function(){
+        let id = $("#id").val();
         let nombre = $("#nombre").val();
         let apellidos = $("#apellidos").val();
         let email = $("#email").val();
-        let pssw = $("#pssw").val();
         let rol = $("#rol").val();
-
         $.ajax({
-            url:"controller/altaUser.php",
+            url:"controller/editarUser.php",
             type: "POST",
             data:{
+                id: id,
                 nombre: nombre,
                 apellidos: apellidos,
                 email: email,
-                pssw: pssw,
                 rol: rol
             },
             success: function(data){ 
                 setTimeout(function(){
-                    $("#alertG").show();
-                    $("#nombre").val("");
-                    $("#apellidos").val("");
-                    $("#email").val("");
-                    $("#pssw").val("");
-                    $("#rol").val("");
+                    window.history.back();
                 }, 500);
             },
             error: function()
             {
                 setTimeout(function(){
                     $("#alertB").show();
-                    $("#nombre").val("");
-                    $("#apellidos").val("");
-                    $("#email").val("");
-                    $("#pssw").val("");
-                    $("#rol").val("");
                 }, 500);
             }        
         });

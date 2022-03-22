@@ -78,68 +78,69 @@
             <?php if($_SESSION['rol'] == "admin"){ ?>
 
             <div class="container mb-3" style="margin-top: -10%;">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
                     <div class="col">
 
-                        <a href="altaUser.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
-                        <div class="card-header">
-                            <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
-                        </div>
-                        <div class="card-body">
+                        <a href="altaUser.php">
+                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
+                                </div>
+                                <div class="card-body">
 
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h5>
-                            
-                        </div>
-                        </div></a>
+                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h5>
+                                    
+                                </div>
+                            </div>
+                        </a>
 
                     </div>
 
                     <div class="col">
 
-                        <a href="altaMaterial.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h5>
-                            
-                        </div>
-                        </div></a>
-
+                        <a href="altaMaterial.php">
+                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
+                                </div>
+                        
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h5>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                     
                     <div class="col">
 
-                        <a href="listaUser.php"><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fa-solid fa-user-gear" style="color: #e6e6e6"></i></h3>
-                        </div>
-                    
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver usuarios</h5>
-                            
-                        </div>
-                        </div></a>
-
+                        <a href="listaUser.php">
+                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                                <div class="card-header">
+                                    <h3><i class="fa-solid fa-user-gear" style="color: #e6e6e6"></i></h3>
+                                </div>
+                        
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver usuarios</h5>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+
                     <div class="col">
 
-                        <a href=""><div class="card mx-auto" style="background-color: #2484c6; height:120px;">
-                            <div class="card-header">
-                            <h3><i class="fa-solid fa-gear" style="color: #e6e6e6"></i></h3>
-                        </div>
+                        <a href="listaMaterial.php">
+                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                                <div class="card-header">
+                                    <h3><i class="fa-solid fa-gear" style="color: #e6e6e6"></i></h3>
+                                </div>
 
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h5>
-                            
-                        </div>
-                        </div></a>
-
+                                <div class="card-body">
+                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h5> 
+                                </div>
+                            <div>
+                        </a>
                     </div>
-                    
-
                 </div>
             </div>
 
