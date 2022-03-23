@@ -56,24 +56,17 @@
                             ?>
                                 <script>
                                     var reservas = document.getElementById("reservas");
-                                    var mat = <?php echo $row['cantidad_y_material']; ?>;
                                     $.get("controller/reservas.php", function(envio){
-                                        //var res = JSON.parse(envio);
-                                        console.log(envio);
+                                        var mat = <?php echo $row['cantidad_y_material']; ?>;
+                                        var res = JSON.parse(envio);
+                                        console.log(res);
+                                        for (let i = 0; i < mat.length; i++) {
+                                            var idmat = parseInt(mat[i]['id'], 10);
+                                            var suma = idmat;
+                                            console.log(suma);
+                                            console.log(mat[i]['cant']);
+                                        }
                                     });
-                                    for (let i = 0; i < mat.length; i++) {
-                                        /*$.ajax({
-                                            url: "controller/reservas.php",
-                                            type:"POST",
-                                            data:{},
-
-                                            success: function(envio){
-                                                console.log(envio);
-                                            },
-                                        });*/
-                                        //console.log(matid);
-                                        console.log(mat[i]['cant']);
-                                    }
                                 </script>
                                 <div class='card text-dark bg-light mb-5 col mx-auto' style='max-width: 22rem;'>
                                     <div class='card-header'><?php echo $_SESSION['email']; ?></div>
