@@ -14,14 +14,14 @@
     $count = $query->rowCount();
 
     if ($count == 0) {
-        $select1 = "SELECT id, categoria FROM material";
+        $select1 = "SELECT id, descripcion FROM material ORDER BY categoria";
         $query1 = $conn->query($select1);
         $count1 = $query1->rowCount();
         if ($count1 != 0) {
             foreach ($query1 as $row1) {
                 $id = intval($row1['id']);
-                $categoria = $row1['categoria'];
-                $envio = array($id, $categoria);
+                $descripcion = $row1['descripcion'];
+                $envio = array($id, $descripcion);
                 echo json_encode($envio);
             }
         }
