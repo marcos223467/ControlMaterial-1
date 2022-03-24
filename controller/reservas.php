@@ -2,14 +2,17 @@
     require '../database.php';
     session_start();
 
-    $select = "SELECT categoria FROM material";
-    $query = $conn->query($select);
-    $count = $query->rowCount();
-    $envio = array();
-    if ($count != 0) {
-        foreach ($query as $row) {
-            array_push($envio, $row['categoria']);
+    if(isset($_POST['id']))
+    {
+        $select = "SELECT descripcion FROM material WHERE id = ".$_POST['id'];
+        $query = $conn->query($select);
+        $count = $query->rowCount();
+        if ($count != 0) {
+            foreach ($query as $row) {
+                $data = array('descripcion' => $row['descripcion'], 'cantidad' => $_POST['cantidad']);
+                echo json_encode($data);
+            }
         }
     }
-    echo json_encode($envio);
+    
 ?>

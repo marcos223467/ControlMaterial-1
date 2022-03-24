@@ -17,8 +17,28 @@
             echo "<script> console.log('No hay sesion') </script>";
             header("location: index.php");
         }
-        
 
+        $id_reservas = array();
+        $fecha_inicio = array();
+        $hora_inicio = array();
+        $hora_fin = array();
+        $cant_mat = array();
+        $id_user = array();
+        $select = "SELECT * FROM reservas";
+        $query = $conn->query($select);
+        $count = $query->rowCount();
+        if ($count != 0)
+        {
+            foreach ($query as $row)
+            {
+                array_push($id_reservas, $row['id']);
+                array_push($fecha_inicio, $row['fecha_inicio']);
+                array_push($hora_inicio, $row['hora_inicio']);
+                array_push($hora_fin, $row['hora_fin']);
+                array_push($id_user, $row['id_user']);
+                array_push($cant_mat, $row['cantidad_y_material']);
+            }
+        }
 ?>
 
     <!DOCTYPE html>
@@ -46,41 +66,65 @@
             <button type="button" class="btn btn-secondary" onclick="window.location='reservar.php'">Reservar material</button>
         </div>
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3" id="reservas">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
                 <?php
-                    $select = "SELECT * FROM reservas";
-                    $query = $conn->query($select);
-                    $count = $query->rowCount();
-                    if ($count != 0) {
-                        foreach ($query as $row) {
-                            ?>
-                                <script>
-                                    var reservas = document.getElementById("reservas");
-                                    $.get("controller/reservas.php", function(envio){
-                                        var mat = <?php echo $row['cantidad_y_material']; ?>;
-                                        var res = JSON.parse(envio);
-                                        console.log(res);
-                                        for (let i = 0; i < mat.length; i++) {
-                                            var idmat = parseInt(mat[i]['id'], 10);
-                                            var suma = idmat;
-                                            console.log(suma);
-                                            console.log(mat[i]['cant']);
-                                        }
-                                    });
-                                </script>
-                                <div class='card text-dark bg-light mb-5 col mx-auto' style='max-width: 22rem;'>
-                                    <div class='card-header'><?php echo $_SESSION['email']; ?></div>
-                                    <div class='card-body' id='reservas'>
-                                        <p class='card-text'>Reservado el: <?php echo $row['fecha_inicio']; ?></p>
-                                        <h5 class='card-title'>Hora inicio: <?php echo $row['hora_inicio']; ?></h5>
-                                        <h5 class='card-title'>Hora fin: <?php echo $row['hora_fin']; ?></h5>
-                                        <p class="card-text">Materiales: </p>
-                                    </div>
-                                </div>
-                            <?php
+                    for($i = 0; $i < $count; $i++)
+                    {
+                        $select = "SELECT * FROM usuarios WHERE id = '$id_user[$i]'" ;
+                        $query = $conn->query($select);
+                        $count2 = $query->rowCount();
+                        $email = "";
+                        if($count2 != 0)
+                        {
+                            foreach ($query as $row)
+                            {
+                                $nombre = $row['nombre'];
+                                $apellidos = $row['apellidos'];
+                            }
+                            echo "<div class='card text-dark bg-light mb-5 col mx-auto' style='max-width: 22rem;'>";
+                                echo "<div class='card-header'>"; echo $nombre." ".$apellidos; echo "</div>";
+                                echo "<div class='card-body' id='reserva".$i."'>";
+                                    echo "<p class='card-text'>Reservado el "; echo $fecha_inicio[$i]; echo "</p>";
+                                    echo "<h5 class='card-title'>Hora inicio: "; echo $hora_inicio[$i]; echo "</h5>";
+                                    echo "<h5 class='card-title'>Hora fin: "; echo $hora_fin[$i]; echo "</h5>";
+                                    echo "<h5 class='card-title'>Materiales: </h5>";
+                                echo "</div>";
+                            echo "</div>";
                         }
                     }
                 ?>
+                <script>
+                    <?php
+                        for($i = 0; $i < $count; $i++)
+                        {
+                    ?>
+                            var mat = <?php echo $cant_mat[$i]; ?>;
+                            for (var i = 0; i < mat.length; i++) {
+                                var idmat = parseInt(mat[i]['id'], 10);
+                                var cant = mat[i]['cant'];
+                                $.ajax({
+                                    url:"controller/reservas.php",
+                                    type:"POST",
+                                    data:
+                                    {
+                                        id: idmat,
+                                        cantidad: cant
+                                    },
+                                    success: function(data)
+                                    {
+                                        var datos = JSON.parse(data);
+                                        var div = document.getElementById("reserva" + <?php echo $i; ?>);
+                                        var desc = document.createElement("p");
+                                        desc.className = "card-text";
+                                        desc.innerHTML = datos['descripcion'] + " " + datos['cantidad'] + " unidades";
+                                        div.appendChild(desc);
+                                    }
+                                });
+                            }
+                    <?php
+                        }
+                    ?>
+                </script>
             </div>
         </div>
     </body>
