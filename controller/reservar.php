@@ -8,7 +8,6 @@
         $hreserva = $_POST['hreserva'];
         $hdevolucion = $_POST['hdevolucion'];
         $matycant = $_POST['matycant'];
-        echo "<script>console.log($matycant[0])</script>";
         $id = null;
         $userid = $_SESSION['user_id'];
 
