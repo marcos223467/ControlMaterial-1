@@ -58,34 +58,36 @@
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
         <br>
-        <table class="table table-hover" style=" background-color: white;">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Descripción</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    for($i = 0; $i < $count; $i++)
-                    {
-                        echo "<tr>";
-                        echo "<th scope='row'>"; echo$i+1; echo "</th>";
-                        echo "<td>"; echo $descripcion[$i]; echo "</td>";
-                        echo "<td>"; echo $cantidad[$i]; echo "</td>";
-                        echo "<td>"; echo $categoria[$i]; echo "</td>";
-                        echo "<td>"; echo "<img src='imagenes/$img[$i]' class='rounded float-start' width='150' alt=''></img>"; echo "</td>";
-                        echo "<td>"; echo "<a href='editarMaterial.php?id=$ids[$i]' style='font-size: 30px; text-align: center;'>     <i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
-                        echo "</td>";
-                        echo "</tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-hover" style=" background-color: white;">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        for($i = 0; $i < $count; $i++)
+                        {
+                            echo "<tr>";
+                            echo "<th scope='row'>"; echo$i+1; echo "</th>";
+                            echo "<td>"; echo $descripcion[$i]; echo "</td>";
+                            echo "<td>"; echo $cantidad[$i]; echo "</td>";
+                            echo "<td>"; echo $categoria[$i]; echo "</td>";
+                            echo "<td>"; echo "<img src='imagenes/$img[$i]' class='rounded float-start' width='150' alt=''></img>"; echo "</td>";
+                            echo "<td>"; echo "<a href='editarMaterial.php?id=$ids[$i]' style='font-size: 30px; text-align: center;'>     <i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
+                            echo "</td>";
+                            echo "</tr>";
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
 
         <?php require('vista/footer.php'); ?>
     </body>
