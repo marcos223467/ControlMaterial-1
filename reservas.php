@@ -57,10 +57,22 @@
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+        <script>
+            function volver(event)
+            {
+                event.preventDefault();
+                window.location.href="menu.php";
+            }
+        </script>
+
     </head>
     <body id="body-reservas" style="background-color: #26262c; background-size: cover;">
+
+        <?php require('vista/header.php'); ?>
+            <div>
+                <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
+            </div>
         <div id="top-reservas">
-            <a href="menu.php">Volver</a><br>
             <i class="fas fa-solid fa-laptop"></i>
             <h2>Reservas actuales</h2>
             <button type="button" class="btn btn-secondary" onclick="window.location='reservar.php'">Reservar material</button>
