@@ -54,9 +54,50 @@
                 var selects = document.getElementById("selects");
                 var materiales_reservados = [];
 
-                //Funciones (ARREGLAR!!)
+                //Funciones
                 fecha.addEventListener("change", (event) => {
                     if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $.ajax({
+                        url:"controller/get_reservas.php",
+                        type:"POST",
+                        data:
+                        {
+                            fecha_ini: fecha.value
+                        },
+                        success: function(data)
+                        {
+                            if(data != "")
+                            {
+                                var datos = JSON.parse(data);
+                                console.log(datos);
+                                var hora_Inicio = horaInicio.value.replace(/:/, "");
+                                var hora_Fin = horaFin.value.replace(/:/,"");
+                                for(var i = 0; i < datos.length; i++)
+                                {
+                                    var hora_fin = datos[i]['hora_fin'].replace(/:/,"");
+                                    var hora_ini = datos[i]['hora_inicio'].replace(/:/,"");
+                                    hora_fin = hora_fin.substring(0,hora_fin.length - 3);
+                                    hora_ini = hora_ini.substring(0,hora_ini.length - 3);
+                                    if(parseInt(hora_Inicio,10) >= parseInt(hora_fin,10) || parseInt(hora_Fin,10) <= parseInt(hora_ini,10))
+                                    {
+                                        console.log("no se hace nada");
+                                    }
+                                    else
+                                    {
+                                        var material = JSON.parse(datos[i]['cant_mat']);
+                                        materiales_reservados.push(material);                                        
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                console.log("No hay reservas");
+                            }
+                            
+                        }
+
+                        });
+
                         $("#titulo").show();
                         if (!selects.firstChild) {
                             categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
@@ -70,6 +111,47 @@
                 });
                 horaInicio.addEventListener("change", (event) => {
                     if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $.ajax({
+                        url:"controller/get_reservas.php",
+                        type:"POST",
+                        data:
+                        {
+                            fecha_ini: fecha.value
+                        },
+                        success: function(data)
+                        {
+                            if(data != "")
+                            {
+                                var datos = JSON.parse(data);
+                                console.log(datos);
+                                var hora_Inicio = horaInicio.value.replace(/:/, "");
+                                var hora_Fin = horaFin.value.replace(/:/,"");
+                                for(var i = 0; i < datos.length; i++)
+                                {
+                                    var hora_fin = datos[i]['hora_fin'].replace(/:/,"");
+                                    var hora_ini = datos[i]['hora_inicio'].replace(/:/,"");
+                                    hora_fin = hora_fin.substring(0,hora_fin.length - 3);
+                                    hora_ini = hora_ini.substring(0,hora_ini.length - 3);
+                                    if(parseInt(hora_Inicio,10) >= parseInt(hora_fin,10) || parseInt(hora_Fin,10) <= parseInt(hora_ini,10))
+                                    {
+                                        console.log("no se hace nada");
+                                    }
+                                    else
+                                    {
+                                        var material = JSON.parse(datos[i]['cant_mat']);
+                                        materiales_reservados.push(material);                                        
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                console.log("No hay reservas");
+                            }
+                            
+                        }
+
+                        });
+
                         $("#titulo").show();
                         if (!selects.firstChild) {
                             categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
