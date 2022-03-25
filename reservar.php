@@ -53,7 +53,8 @@
                 var horaFin = document.getElementById("hdevolucion");
                 var selects = document.getElementById("selects");
                 var materiales_reservados = [];
-
+                
+                //PASAR TAMBIEN EL ARRAY DE MATERIALES RESERVADOS!!!!!!!!!
                 //Funciones
                 fecha.addEventListener("change", (event) => {
                     if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
@@ -205,6 +206,7 @@
                         }
 
                         });
+                        console.log(materiales_reservados);
 
                         $("#titulo").show();
                         if (!selects.firstChild) {
@@ -316,7 +318,7 @@
             function cantidad(valMaterial, cantidades, ids, n, n1, y, y1){
 
                 //Variable de objeto
-
+                console.log(materiales_reservados);
                 $.ajax({
                     url:"controller/buscarCant.php",
                     type:"POST",
@@ -335,19 +337,19 @@
                             option.innerHTML = "N/D";
                             cantidad1.appendChild(option);
                         } else {
-                            for(var i = 0; i < materiales_reservados.length; i++)
-                            {
-                                if(materiales_reservados[i].id == valMaterial)
-                                {
-                                    var cont = can - materiales_reservados[i].cant;
-                                    for (let index = 1; index <= cont; index++) {
+                            //for(var i = 0; i < materiales_reservados.length; i++)
+                            //{
+                                //if(materiales_reservados[i].id == valMaterial)
+                                //{
+                                    //var cont = can - materiales_reservados[i].cant;
+                                    for (let index = 1; index <= can; index++) {
                                         var option = document.createElement("option");
                                         option.value = index;
                                         option.innerHTML = index;
                                         cantidad1.appendChild(option);
                                     }
-                                }
-                            }
+                                //}
+                            //}
                         }
                     },
                 });
