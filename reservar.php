@@ -52,6 +52,7 @@
                 var horaInicio = document.getElementById("hreserva");
                 var horaFin = document.getElementById("hdevolucion");
                 var selects = document.getElementById("selects");
+                var materiales_reservados = [];
 
                 //Funciones (ARREGLAR!!)
                 fecha.addEventListener("change", (event) => {
@@ -82,6 +83,47 @@
                 });
                 horaFin.addEventListener("change", (event) => {
                     if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                        $.ajax({
+                        url:"controller/get_reservas.php",
+                        type:"POST",
+                        data:
+                        {
+                            fecha_ini: fecha.value
+                        },
+                        success: function(data)
+                        {
+                            if(data != "")
+                            {
+                                var datos = JSON.parse(data);
+                                console.log(datos);
+                                var hora_Inicio = horaInicio.value.replace(/:/, "");
+                                var hora_Fin = horaFin.value.replace(/:/,"");
+                                for(var i = 0; i < datos.length; i++)
+                                {
+                                    var hora_fin = datos[i]['hora_fin'].replace(/:/,"");
+                                    var hora_ini = datos[i]['hora_inicio'].replace(/:/,"");
+                                    hora_fin = hora_fin.substring(0,hora_fin.length - 3);
+                                    hora_ini = hora_ini.substring(0,hora_ini.length - 3);
+                                    if(parseInt(hora_Inicio,10) >= parseInt(hora_fin,10) || parseInt(hora_Fin,10) <= parseInt(hora_ini,10))
+                                    {
+                                        console.log("no se hace nada");
+                                    }
+                                    else
+                                    {
+                                        var material = JSON.parse(datos[i]['cant_mat']);
+                                        materiales_reservados.push(material);                                        
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                console.log("No hay reservas");
+                            }
+                            
+                        }
+
+                        });
+
                         $("#titulo").show();
                         if (!selects.firstChild) {
                             categoria(valMaterial, cantidades, ids, n, n1, y, y1, fecha, horaInicio, horaFin);
@@ -116,7 +158,7 @@
 
                 //Crear select materiales
                 var mat = document.createElement('select');
-                console.log(n);
+                //console.log(n);
 
                 mat.id = n;
                 mat.name = n;
@@ -146,7 +188,6 @@
                         horaInicio: horaInicio.value,
                         horaFin: horaFin.value,
                     },
-
                     success: function(envio){
                         console.log(envio);
 
@@ -201,7 +242,6 @@
                         id: valMaterial,
                     },
                     success: function(can){
-                        cantidades = can;
                         var cantidad1 = document.getElementById(y)
 
                         while (cantidad1.firstChild) {
@@ -213,11 +253,18 @@
                             option.innerHTML = "N/D";
                             cantidad1.appendChild(option);
                         } else {
-                            for (let index = 1; index <= can; index++) {
-                                var option = document.createElement("option");
-                                option.value = index;
-                                option.innerHTML = index;
-                                cantidad1.appendChild(option);
+                            for(var i = 0; i < materiales_reservados.length; i++)
+                            {
+                                if(materiales_reservados[i].id == valMaterial)
+                                {
+                                    var cont = can - materiales_reservados[i].cant;
+                                    for (let index = 1; index <= cont; index++) {
+                                        var option = document.createElement("option");
+                                        option.value = index;
+                                        option.innerHTML = index;
+                                        cantidad1.appendChild(option);
+                                    }
+                                }
                             }
                         }
                     },
