@@ -83,13 +83,13 @@
                     <div class="col">
 
                         <a href="altaUser.php">
-                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                            <div class="card" style="background-color: #2484c6;">
                                 <div class="card-header">
                                     <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
                                 </div>
                                 <div class="card-body">
 
-                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h5>
+                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h6>
                                     
                                 </div>
                             </div>
@@ -100,13 +100,13 @@
                     <div class="col">
 
                         <a href="altaMaterial.php">
-                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                            <div class="card" style="background-color: #2484c6;">
                                 <div class="card-header">
                                     <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
                                 </div>
                         
                                 <div class="card-body">
-                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h5>
+                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h6>
                                 </div>
                             </div>
                         </a>
@@ -115,13 +115,13 @@
                     <div class="col">
 
                         <a href="listaUser.php">
-                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                            <div class="card" style="background-color: #2484c6;">
                                 <div class="card-header">
                                     <h3><i class="fa-solid fa-user-gear" style="color: #e6e6e6"></i></h3>
                                 </div>
                         
                                 <div class="card-body">
-                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver usuarios</h5>
+                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Usuarios</h6>
                                 </div>
                             </div>
                         </a>
@@ -130,13 +130,13 @@
                     <div class="col">
 
                         <a href="listaMaterial.php">
-                            <div class="card" style="background-color: #2484c6; width: 15rem;">
+                            <div class="card" style="background-color: #2484c6;">
                                 <div class="card-header">
                                     <h3><i class="fa-solid fa-gear" style="color: #e6e6e6"></i></h3>
                                 </div>
 
                                 <div class="card-body">
-                                    <h5 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h5> 
+                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h6> 
                                 </div>
                             <div>
                         </a>
