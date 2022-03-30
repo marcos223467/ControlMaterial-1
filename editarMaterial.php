@@ -47,8 +47,29 @@
             }
         </script>
         <script>
-            function confirmar(){
-                
+            function Eliminar()
+            {
+                let id = <?php echo $id ?>;
+                $.ajax({
+                    url:"controller/eliminarMaterial.php",
+                    type: "POST",
+                    data:
+                    {
+                        id: id
+                    },
+                    success: function(data)
+                    {
+                        setTimeout(function(){
+                            window.location.href="listaMaterial.php";
+                        }, 500);
+                    },
+                    error: function()
+                    {
+                        setTimeout(function(){
+                            $("#alertB").show();
+                        }, 500);
+                    }   
+                });
             }
         </script>
 
@@ -71,7 +92,7 @@
                         <form enctype="multipart/form-data" id="subidaImagen" method="post">
                             <div class="card-header">
                                 <h5>Editar Material<h5>
-                                <button class="btn"><i class="fa-solid fa-trash-can"></i></button>
+                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash-can"></i></button>
                             </div>
                             <input id="id" type="hidden" value="<?php echo $id ?>"/>
                             <input id="img" type="hidden" value="<?php echo $img ?>"/>
@@ -167,6 +188,23 @@
                             </ul>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!--MODAL-->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar Material</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de querer eliminar este material?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="Eliminar()">Eliminar</button>
+                </div>
                 </div>
             </div>
         </div>
