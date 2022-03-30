@@ -41,21 +41,20 @@
     </head>
 
 
-    <body id="publicaciones-profes" style="display:none; background-color: #26262c; background-size: cover;">
+    <body id="publicaciones-profes" style="display:none; background-color: #efecea; background-size: cover;">
 
         <?php require('vista/header.php'); ?>
-
         
-
-        <!-- Hemos accedido a la app -->
-
-        <br>
-        <div class="chip">
-            <span><?php echo $_SESSION['email']; ?></span>
+        <div class="container d-flex justify-content-center mt-3">
+            <div class="card d-flex justify-content-center mt-3" id="card-user">
+                <div class="top-container" id="top-container-user"> <img src="./imagenes/default.png" class="img-fluid profile-image" width="50">
+                <div class="ml-3" id="data-user">
+                    <h5 class="name mb-3"><?php echo $_SESSION['email']; ?></h5>
+                </div>
+                <a class="" href="controller/logout.php" style="margin-left: 15px; text-decoration: none; color: grey; font-size: 14px">Salir</a>
+                </div>
+            </div>
         </div>
-        <br><br>
-        
-        <a href="controller/logout.php">Salir</a>
         <br><br>
         <div class="container">
             <div class="tarjeta">
@@ -79,66 +78,47 @@
 
             <div class="container mb-3" style="margin-top: -10%;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-
-                    <div class="col">
-
-                        <a href="altaUser.php">
-                            <div class="card" style="background-color: #2484c6;">
-                                <div class="card-header">
-                                    <h3><i class="fas fa-solid fa-user" style="color: #e6e6e6"></i></h3>
-                                </div>
-                                <div class="card-body">
-
-                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff;">Alta Usuario</h6>
-                                    
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="col">
-
-                        <a href="altaMaterial.php">
-                            <div class="card" style="background-color: #2484c6;">
-                                <div class="card-header">
-                                    <h3><i class="fas fa-solid fa-tablet" style="color: #e6e6e6"></i></h3>
-                                </div>
-                        
-                                <div class="card-body">
-                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Alta material</h6>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="col">
-
-                        <a href="listaUser.php">
-                            <div class="card" style="background-color: #2484c6;">
-                                <div class="card-header">
-                                    <h3><i class="fa-solid fa-user-gear" style="color: #e6e6e6"></i></h3>
-                                </div>
-                        
-                                <div class="card-body">
-                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Usuarios</h6>
+                    <div class="container-img">
+                        <a href="altaUser.php" style="text-decoration:none; color:#000;">
+                            <div class="card card-access">
+                                <div class="card-body" style="text-align:center">
+                                    <h5 class="card-title">Alta Usuario</h5>
+                                    <h1 class="card-text"><i class="fas fa-solid fa-user" style="color: #000000"></i></h1>
                                 </div>
                             </div>
                         </a>
                     </div>
 
-                    <div class="col">
-
-                        <a href="listaMaterial.php">
-                            <div class="card" style="background-color: #2484c6;">
-                                <div class="card-header">
-                                    <h3><i class="fa-solid fa-gear" style="color: #e6e6e6"></i></h3>
+                    <div class="container-img">
+                        <a href="altaMaterial.php" style="text-decoration:none; color:#000;">
+                            <div class="card card-access">
+                                <div class="card-body" style="text-align:center">
+                                    <h5 class="card-title">Alta Material</h5>
+                                    <h1 class="card-text"><i class="fas fa-solid fa-tablet" style="color: #000000"></i></h1>
                                 </div>
+                            </div>
+                        </a>
+                    </div>
 
-                                <div class="card-body">
-                                    <h6 class="card-title" style="font-family: 'Roboto', sans-serif; color: #fff; ">Ver Material</h6> 
+                    <div class="container-img">
+                        <a href="listaUser.php" style="text-decoration:none; color:#000;">
+                            <div class="card card-access">
+                                <div class="card-body" style="text-align:center">
+                                    <h5 class="card-title">Usuarios</h5>
+                                    <h1 class="card-text"><i class="fa-solid fa-user-gear" style="color: #000000"></i></h1>
                                 </div>
-                            <div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="container-img">
+                        <a href="listaMaterial.php" style="text-decoration:none; color:#000;">
+                            <div class="card card-access">
+                                <div class="card-body" style="text-align:center">
+                                    <h5 class="card-title">Ver Material</h5>
+                                    <h1 class="card-text"><i class="fa-solid fa-gear" style="color: #000000"></i></h1>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>

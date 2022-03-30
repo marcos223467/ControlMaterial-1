@@ -52,7 +52,7 @@
         </script>
 
     </head>
-    <body style=" background-color: #26262c; background-size: cover;">
+    <body style=" background-color: #efecea; background-size: cover;">
         <?php require('vista/header.php'); ?>
         <div>
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>

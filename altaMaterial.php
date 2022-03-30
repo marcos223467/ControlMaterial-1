@@ -29,7 +29,7 @@
         </script>
 
     </head>
-    <body style=" background-color: #26262c; background-size: cover;">
+    <body style=" background-color: #efecea; background-size: cover;">
         <?php require('vista/header.php'); ?>
         <div>
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
                 <div class="col">
-                    <div class="card" style="width: 20rem; display: block; margin: 0 auto;">
+                    <div class="card" id="input-card" style="width: 20rem; display: block; margin: 0 auto;">
                         <form enctype="multipart/form-data" id="subidaImagen" method="post">
                             <div class="card-header">
                                 Alta de Material

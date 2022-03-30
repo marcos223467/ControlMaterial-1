@@ -66,7 +66,7 @@
         </script>
 
     </head>
-    <body id="body-reservas" style="background-color: #26262c; background-size: cover;">
+    <body id="body-reservas" style="background-color: #efecea; background-size: cover;">
 
         <?php require('vista/header.php'); ?>
             <div>
