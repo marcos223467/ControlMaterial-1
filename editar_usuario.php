@@ -48,12 +48,37 @@
                 event.preventDefault();
                 window.location.href="listaUser.php";
             }
+
+            function Eliminar()
+            {
+                let id = <?php echo $id ?>;
+                $.ajax({
+                    url:"controller/eliminarUsuario.php",
+                    type: "POST",
+                    data:
+                    {
+                        id: id
+                    },
+                    success: function(data)
+                    {
+                        setTimeout(function(){
+                            window.history.back();
+                        }, 500);
+                    },
+                    error: function()
+                    {
+                        setTimeout(function(){
+                            $("#alertB").show();
+                        }, 500);
+                    }   
+                });
+            }
         </script>
 
     </head>
     <body style=" background-color: #26262c; background-size: cover;">
         <?php require('vista/header.php'); ?>
-
+        
         <div>
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
@@ -67,8 +92,10 @@
                 <div class="col">
                     <div class="card" style="width: 20rem; display: block; margin: 0 auto;">
                         <div class="card-header">
-                                Editar Usuario
+                            <h5>Editar Usuario</h5>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash-can" id="delete"></i></button>
                         </div>
+                       
                         <input id="id" type="hidden" value="<?php echo $id;?>"/>
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>
@@ -104,6 +131,24 @@
                             <button type="button" class="btn btn-primary" id="btn">Editar</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar Usuario</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de querer eliminar este usuario?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="Eliminar()">Eliminar</button>
+                </div>
                 </div>
             </div>
         </div>

@@ -80,34 +80,9 @@
                             echo "<td>"; echo $apellidos[$i]; echo "</td>";
                             echo "<td>"; echo $email[$i]; echo "</td>";
                             echo "<td>"; echo $rol[$i]; echo "</td>";
-                            echo "<td>"; echo "<a href='editar_usuario.php?id=$ids[$i]'><i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
-                            echo "<button class='btn' data-toggle='modal' data-target='#eliminar<?php echo $i; ?>'><i id='dm-i' class='fa-solid fa-trash-can'></i></button>";
+                            echo "<td>"; echo "<a href='editar_usuario.php?id=$ids[$i]' style='font-size: 30px; text-align: center;'>      <i id='adm-i' class='fa-solid fa-pen-to-square'></i></a>";
                             echo "</td>";
                             echo "</tr>";
-                            echo "<div class='modal fade' id='eliminar<?php echo $i; ?>' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'>";
-                            echo "<div class='modal-dialog' role='document'>";
-                            echo  "<div class='modal-content'>";
-                            echo    "<div class='modal-header'>";
-                            echo        "<h4 class='modal-title'>";
-                            echo            "Eliminar Usuario";
-                            echo        "</h4>";
-                            echo    "</div>";
-                        
-                            echo   "<div class='modal-body'>";
-                            echo     "<strong style='text-align: center !important'>"; 
-                            echo       "alguien";
-                                
-                            echo      "</strong>";
-                            echo    "</div>";
-                                
-                            echo    "<div class='modal-footer'>";
-                            echo      "<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>";
-                            echo      "<button type='submit' class='btn btn-danger btnBorrar' data-dismiss='modal' id='<?php echo $i; ?>'>Borrar</button>";
-                            echo    "</div>";
-                                
-                            echo    "</div>";
-                            echo  "</div>";
-                            echo "</div>";
                         }
                     ?>
                 </tbody>
