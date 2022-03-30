@@ -139,5 +139,6 @@
                 </script>
             </div>
         </div>
+        <?php require('vista/footer.php') ?>
     </body>
     </html>

@@ -18,7 +18,12 @@ header img{
 }
 
 #footer-general{
+	background-color: #333;
 	width: 100%;
+}
+#footer-general a{
+	text-decoration: none;
+	color: #ff6b10;
 }
 
 footer a{
@@ -56,14 +61,14 @@ h1
 }
 #top-reservas i
 {
-	margin-top: 2rem;
-	font-size: 3rem;
+	margin-top: 1rem;
+	font-size: 2rem;
 	color: #ff6b10;
 }
 #top-reservas h2
 {
-	margin-top: 1rem;
-	margin-bottom: 3rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
 	color: black;
 	font-size: 2rem;
 	text-transform: uppercase;
@@ -71,7 +76,7 @@ h1
 }
 #top-reservas button
 {
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 .card-title
 {
@@ -80,11 +85,17 @@ h1
 
 
 /*RESERVAR*/
+.reservar2{
+	margin-bottom: 20rem;
+	max-width: 25rem;
+}
 .reservar input
 {
 	width: 18rem;
 }
 
+
+/*LOGIN*/
 #signin-card
 {
 	border-radius: 15px;
