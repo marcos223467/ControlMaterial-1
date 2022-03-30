@@ -39,6 +39,16 @@
                 array_push($cant_mat, $row['cantidad_y_material']);
             }
         }
+
+        $hoy = getdate();
+        for($i = 0; $i < $count; $i++)
+        {
+            if($hoy['mday'] > $fecha_inicio[$i])
+            {
+                echo "<script> console.log('$fecha_inicio[$i]') </script>";
+            }
+        }
+
 ?>
 
     <!DOCTYPE html>
@@ -139,5 +149,6 @@
                 </script>
             </div>
         </div>
+        <?php require('vista/footer.php'); ?>
     </body>
     </html>
