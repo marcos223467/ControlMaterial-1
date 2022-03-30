@@ -46,6 +46,11 @@
                 window.location.href="listaMaterial.php";
             }
         </script>
+        <script>
+            function confirmar(){
+                
+            }
+        </script>
 
     </head>
     <body style=" background-color: #26262c; background-size: cover;">
@@ -65,7 +70,8 @@
                     <div class="card" style="width: 20rem; display: block; margin: 0 auto;">
                         <form enctype="multipart/form-data" id="subidaImagen" method="post">
                             <div class="card-header">
-                                Editar Material
+                                <h5>Editar Material<h5>
+                                <button class="btn"><i class="fa-solid fa-trash-can"></i></button>
                             </div>
                             <input id="id" type="hidden" value="<?php echo $id ?>"/>
                             <input id="img" type="hidden" value="<?php echo $img ?>"/>
