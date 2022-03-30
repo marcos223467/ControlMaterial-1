@@ -4,8 +4,7 @@
 </head>
 
 <body>
-	<header style="background-color: #212529;">
-		<a href= "menu.php" style="font-size: 40px;"><i class="fa-solid fa-bahai"></i>(LOGO)</a>
-		<h1>CONTROL MATERIAL</h1>
+	<header>
+		<img src="imagenes/codenautas.png" alt="codenautas">
 	</header>
 </body>

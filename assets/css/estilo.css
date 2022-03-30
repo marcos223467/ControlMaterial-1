@@ -6,21 +6,19 @@ body{
 }
 
 header{
-	border-bottom: 2px solid #eee;
-	padding: 20px 0;
+	padding: 20px;
 	margin-bottom: 10px;
 	width: 100%;
 	text-align: center;
+	background-color: #333;
+}
+header img{
+	width: 20rem;
+	height: auto;
 }
 
 #footer-general{
-	position: absolute;
-    bottom: 0;
-    border-top: 2px solid #eee;
-	padding: 20px 0;
-	margin-top: 10px;
 	width: 100%;
-	text-align: center;
 }
 
 footer a{
