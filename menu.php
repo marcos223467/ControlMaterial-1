@@ -45,8 +45,8 @@
 
         <?php require('vista/header.php'); ?>
         
-        <div class="container d-flex justify-content-center mt-3">
-            <div class="card d-flex justify-content-center mt-3" id="card-user">
+        <div class="container d-flex justify-content-center mt-1">
+            <div class="card d-flex justify-content-center mt-1" id="card-user">
                 <div class="top-container" id="top-container-user"> <img src="./imagenes/default.png" class="img-fluid profile-image" width="50">
                 <div class="ml-3" id="data-user">
                     <h5 class="name mb-3"><?php echo $_SESSION['email']; ?></h5>
@@ -76,7 +76,7 @@
 
             <?php if($_SESSION['rol'] == "admin"){ ?>
 
-            <div class="container mb-3" style="margin-top: -10%;">
+            <div class="container" style="margin-top: -15%;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
                     <div class="container-img">
                         <a href="altaUser.php" style="text-decoration:none; color:#000;">
