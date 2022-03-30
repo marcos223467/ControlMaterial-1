@@ -92,7 +92,7 @@
                 
                 //Funciones
                 fecha.addEventListener("change", (event) => {
-                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "" && horaInicio.value < horaFin.value) {
                         $.ajax({
                         url:"controller/get_reservas.php",
                         type:"POST",
@@ -146,7 +146,7 @@
                     }
                 });
                 horaInicio.addEventListener("change", (event) => {
-                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "" && horaInicio.value < horaFin.value) {
                         $.ajax({
                         url:"controller/get_reservas.php",
                         type:"POST",
@@ -200,7 +200,7 @@
                     }
                 });
                 horaFin.addEventListener("change", (event) => {
-                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "") {
+                    if (fecha.value != "" && horaInicio.value != "" && horaFin.value != "" && horaInicio.value < horaFin.value) {
                         $.ajax({
                         url:"controller/get_reservas.php",
                         type:"POST",
@@ -410,7 +410,7 @@
             <i class="fas fa-solid fa-bookmark"></i>
             <h2>Reservar materiales</h2>
         </div>
-        <div class="card text-dark bg-light mb-3 col mx-auto" style="max-width: 30rem;">
+        <div class="card text-dark bg-light mb-3 col mx-auto reservar2">
             <div class="card-body reservar">
                 <p class="card-text">Fecha de la reserva:</p>
                 <p class="card-text"><input type="date" name="reserva" id="reserva"></p>
@@ -425,6 +425,11 @@
             </div>
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             <script src="./js/reservar.js"></script>
-        </div>   
-        <?php require('vista/footer.php'); ?>
+
+        </div>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
     </body>
