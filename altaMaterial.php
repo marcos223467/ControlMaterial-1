@@ -57,12 +57,12 @@
                                     <label class="form-label">Categoria</label>
                                     <select class="form-select" style="text-align: center;" id="categoria">
                                         <option value="">--Elegir Categoria--</option>
-                                        <option value="legos">Caja de Lego</option>
+                                        <option value="legos">Legos</option>
                                         <option value="juegos_logica">Juegos de lógica</option>
+                                        <option value="tablet">Tablets</option>
+                                        <option value="ordenador_portatil">Portatiles</option>
+                                        <option value="robot">Robots</option>
                                         <option value="kit_robotica">Kit de Robótica</option>
-                                        <option value="tablet">Tablet</option>
-                                        <option value="ordenador_portatil">Ordenador Portatil</option>
-                                        <option value="robot">Robot</option>
                                         <option value="varios">Varios</option>
                                     </select>
                                 </li>
