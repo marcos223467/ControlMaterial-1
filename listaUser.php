@@ -59,7 +59,7 @@
         </div>
         <br>
         <div class="table-responsive">
-            <table class="table table-hover" style=" background-color: white;">
+            <table class="table table-hover" style=" background-color: #efecea;">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
@@ -89,6 +89,10 @@
             </table>
         </div>
 
-        <?php require('vista/footer.php'); ?>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
     </body>
 </html>

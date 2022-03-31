@@ -149,6 +149,10 @@
                 </script>
             </div>
         </div>
-        <?php require('vista/footer.php') ?>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
     </body>
     </html>

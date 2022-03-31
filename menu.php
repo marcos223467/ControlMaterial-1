@@ -47,7 +47,7 @@
         
         <div class="container d-flex justify-content-center mt-1">
             <div class="card d-flex justify-content-center mt-1" id="card-user">
-                <div class="top-container" id="top-container-user"> <img src="./imagenes/default.png" class="img-fluid profile-image" width="50">
+                <div class="top-container" id="top-container-user"> <img src="./imagenes/default_user.png" class="img-fluid profile-image" width="50">
                 <div class="ml-3" id="data-user">
                     <h5 class="name mb-3"><?php echo $_SESSION['email']; ?></h5>
                 </div>
@@ -74,7 +74,10 @@
 
             <!-- ADMIN -->
 
-            <?php if($_SESSION['rol'] == "admin"){ ?>
+    <?php 
+        if($_SESSION['rol'] == "admin")
+        { 
+    ?>
 
             <div class="container" style="margin-top: -15%;">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
@@ -124,26 +127,18 @@
                 </div>
             </div>
 
-            <?php }?>
-
-
-
-            <?php require('vista/footer.php'); ?>
-
+    <?php
+        }
+        else
+        {
+            require('../vista/acceso_denegado.php');  
+        }
+        require('vista/footer.php');
+    ?>
             <script type="text/javascript" src="js/fade.js"></script>
-
 
 
         <!-- Bootstrap Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
-    <?php}else{?>
-
-        
-
-        <?phprequire('../vista/acceso_denegado.php'); ?>
-
-        
-
-    <?php }?>
 </html>

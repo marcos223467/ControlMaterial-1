@@ -37,7 +37,7 @@
                         <div class="container mt-4 mb-3">
                             <img src="./imagenes/codenautas.png" width="120">
                         </div>
-                        <h1 class="h4" style="color: #808080">
+                        <h1 class="h4" style="color: #222222; font-weight: bold;">
                         ACCESO
                         </h1>
                     
