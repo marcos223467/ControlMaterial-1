@@ -7,6 +7,26 @@ $(document).ready(function() {
         let email = $("#email").val();
         let pssw = $("#pssw").val();
         let rol = $("#rol").val();
+        let imagen = document.getElementById("imagen");
+        var filename = "default_user.png";
+        if(imagen.files[0] != null)
+        {
+            let extension = imagen.files[0].name.split('.').pop();
+            filename = (Math.random()+1).toString(36).substring(2) + '.' + extension;
+            const formData = new FormData();
+            formData.append('img', imagen.files[0], filename);
+
+        
+            fetch('controller/subirImg.php', {
+                method: 'post',
+                headers: {
+                    'Accept' : 'application/json'
+                },
+                body: formData
+            }).then(respuesta => respuesta.text()).then(decodificado =>{
+                console.log(decodificado);
+            });
+        }
 
         $.ajax({
             url:"controller/altaUser.php",
@@ -16,7 +36,8 @@ $(document).ready(function() {
                 apellidos: apellidos,
                 email: email,
                 pssw: pssw,
-                rol: rol
+                rol: rol,
+                imagen: filename
             },
             success: function(data){ 
                 setTimeout(function(){
@@ -26,6 +47,7 @@ $(document).ready(function() {
                     $("#email").val("");
                     $("#pssw").val("");
                     $("#rol").val("");
+                    $("imagen").val("");
                 }, 500);
             },
             error: function()
@@ -37,6 +59,7 @@ $(document).ready(function() {
                     $("#email").val("");
                     $("#pssw").val("");
                     $("#rol").val("");
+                    $("imagen").val("");
                 }, 500);
             }        
         });

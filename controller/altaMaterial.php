@@ -1,7 +1,7 @@
 <?php
     require '../database.php';
 
-    if($_POST['categoria'] != "" && $_POST['descripcion'] != "" && $_POST['cantidad'] != 0 && $_POST['imagen'] !=  "")
+    if($_POST['categoria'] != "" && $_POST['descripcion'] != "" && $_POST['cantidad'] != 0 && $_POST['imagen'] != "")
     {
         $cat = $_POST['categoria'];
         $desc = $_POST['descripcion'];

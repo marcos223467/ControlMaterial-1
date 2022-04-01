@@ -16,6 +16,7 @@
             $apellidos = $row['apellidos'];
             $email = $row['email'];
             $rol = $row['rol'];
+            $img = $row['imagen'];
             
         }
 
@@ -83,15 +84,15 @@
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
         <br>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertB">
-            El usuario no se ha podido editar!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
                 <div class="col">
-                    <div class="card" id="input-card" style="width: 20rem; display: block; margin: 0 auto;">
+                    <div class="card" id="input-card" style="display: block; margin: 0 auto;">
                         <div class="card-header">
+                            <label class="custom-file-upload">
+                                <input type="file" id="imagen"/>
+                                <img src="./imagenes/<?php echo $img; ?>" class="img-fluid profile-image" width="50">
+                            </label> 
                             <h5>Editar Usuario</h5>
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash-can" id="delete"></i></button>
                         </div>
@@ -155,7 +156,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="./js/editarUsuario.js"></script>
         <br>
-        <?php require('vista/footer.php'); ?>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
 
         <script type="text/javascript" src="js/fade.js"></script>
 

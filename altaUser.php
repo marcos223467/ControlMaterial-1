@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
                 <div class="col">
-                    <div class="card" id="input-card"style="width: 20rem; display: block; margin: 0 auto;">
+                    <div class="card" id="input-card"style="display: block; margin: 0 auto;">
                         <div class="card-header">
                                 Alta de Usuario
                             </div>
@@ -71,6 +71,10 @@
                                 <option value="admin">Administrador</option>
                                 <option value="profe">Profesor</option>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Imagen</label>
+                            <input class="form-control form-control-sm" type="file" id="imagen">
                         </div>
                         <div class="mb-3">
                             <button type="button" class="btn btn-primary" id="btn">Registar</button>

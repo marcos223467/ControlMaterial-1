@@ -10,7 +10,27 @@
 
         if(isset($_SESSION['user_id']))
         {
-            echo "<script> console.log('Hay sesion') </script>";
+            $id = $_SESSION['user_id'];
+            $email;
+            $nombre;
+            $apellidos;
+            $rol;
+            $img;
+
+            $select = "SELECT * FROM usuarios WHERE id ='$id'";
+            $query = $conn->query($select);
+            $count = $query->rowCount();
+            if ($count != 0)
+            {
+                foreach ($query as $row)
+                {
+                    $email =  $row['email'];
+                    $nombre = $row['nombre'];
+                    $apellidos = $row['apellidos'];
+                    $rol = $row['rol'];
+                    $img = $row['imagen'];
+                }
+            }
         }
         else
         {
@@ -44,14 +64,24 @@
     <body id="publicaciones-profes" style="display:none; background-color: #efecea; background-size: cover;">
 
         <?php require('vista/header.php'); ?>
-        
+        <input type="hidden" id="id" value="<?php echo $id; ?>"/>
+        <input type="hidden" id="nombre" value="<?php echo $nombre; ?>"/>
+        <input type="hidden" id="apellidos" value="<?php echo $apellidos; ?>"/>
+        <input type="hidden" id="rol" value="<?php echo $rol; ?>"/>
+        <input type="hidden" id="email" value="<?php echo $email; ?>"/>
+        <input type="hidden" id="img" value="<?php echo $img; ?>"/>
         <div class="container d-flex justify-content-center mt-1">
             <div class="card d-flex justify-content-center mt-1" id="card-user">
-                <div class="top-container" id="top-container-user"> <img src="./imagenes/default_user.png" class="img-fluid profile-image" width="50">
-                <div class="ml-3" id="data-user">
-                    <h5 class="name mb-3"><?php echo $_SESSION['email']; ?></h5>
-                </div>
-                <a class="" href="controller/logout.php" style="margin-left: 15px; text-decoration: none; color: grey; font-size: 14px">Salir</a>
+                <div class="top-container" id="top-container-user">
+                <label class="custom-file-upload" id="lbl">
+                    <input type="file" id="imagen"/>
+                    <img src="./imagenes/<?php echo $img; ?>" class="img-fluid profile-image" width="50">
+                    <button type="button" class="btn" id="btn2"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+                </label> 
+                    <div class="ml-3" id="data-user">
+                        <h5 class="name mb-3"><?php echo $email; ?></h5>
+                    </div>
+                    <a class="" href="controller/logout.php" style="margin-left: 15px; text-decoration: none; color: grey; font-size: 14px">Salir</a>
                 </div>
             </div>
         </div>
@@ -79,9 +109,9 @@
         { 
     ?>
 
-            <div class="container" style="margin-top: -15%;">
+            <div class="container cont">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-                    <div class="container-img">
+                    <div class="container-img" id="tag">
                         <a href="altaUser.php" style="text-decoration:none; color:#000;">
                             <div class="card card-access">
                                 <div class="card-body" style="text-align:center">
@@ -92,7 +122,7 @@
                         </a>
                     </div>
 
-                    <div class="container-img">
+                    <div class="container-img" id="tag">
                         <a href="altaMaterial.php" style="text-decoration:none; color:#000;">
                             <div class="card card-access">
                                 <div class="card-body" style="text-align:center">
@@ -103,7 +133,7 @@
                         </a>
                     </div>
 
-                    <div class="container-img">
+                    <div class="container-img" id="tag">
                         <a href="listaUser.php" style="text-decoration:none; color:#000;">
                             <div class="card card-access">
                                 <div class="card-body" style="text-align:center">
@@ -114,7 +144,7 @@
                         </a>
                     </div>
 
-                    <div class="container-img">
+                    <div class="container-img" id="tag">
                         <a href="listaMaterial.php" style="text-decoration:none; color:#000;">
                             <div class="card card-access">
                                 <div class="card-body" style="text-align:center">
@@ -126,7 +156,6 @@
                     </div>
                 </div>
             </div>
-
     <?php
         }
         else
@@ -135,7 +164,8 @@
         }
         require('vista/footer.php');
     ?>
-            <script type="text/javascript" src="js/fade.js"></script>
+        <script src="./js/editarUsuario.js"></script>
+        <script type="text/javascript" src="js/fade.js"></script>
 
 
         <!-- Bootstrap Bundle with Popper -->

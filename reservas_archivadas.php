@@ -24,7 +24,7 @@
         $hora_fin = array();
         $cant_mat = array();
         $id_user = array();
-        $select = "SELECT * FROM reservas WHERE archivado = 0";
+        $select = "SELECT * FROM reservas WHERE archivado = 1";
         $query = $conn->query($select);
         $count = $query->rowCount();
         if ($count != 0)
@@ -39,23 +39,6 @@
                 array_push($cant_mat, $row['cantidad_y_material']);
             }
         }
-
-        $hoy = getdate();
-        $fecha_act = $hoy['mday']."-".$hoy['mon']."-".$hoy['year'];
-        $fecha_act = strtotime($fecha_act);
-        for($i = 0; $i < $count; $i++)
-        {
-            $date = strtotime($fecha_inicio[$i]);
-            if($fecha_act > $date)
-            {
-                $update = "UPDATE reservas SET archivado = true WHERE id = '$id_reservas[$i]'";
-                $stmt = $conn->prepare($update);
-
-                if($stmt->execute()){
-                }
-            }
-        }
-
 ?>
 
     <!DOCTYPE html>
@@ -78,7 +61,7 @@
             function volver(event)
             {
                 event.preventDefault();
-                window.location.href="menu.php";
+                window.history.back();
             }
         </script>
 
@@ -91,9 +74,7 @@
             </div>
         <div id="top-reservas">
             <i class="fas fa-solid fa-laptop"></i>
-            <h2>Reservas actuales</h2>
-            <button type="button" class="btn btn-secondary" onclick="window.location='reservar.php'">Reservar material</button>
-            <button type="button" class="btn btn-secondary" onclick="window.location='reservas_archivadas.php'">Ver Archivadas</button>
+            <h2>Reservas archivadas</h2>
         </div>
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
