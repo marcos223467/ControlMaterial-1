@@ -73,8 +73,11 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Imagen</label>
-                            <input class="form-control form-control-sm" type="file" id="imagen">
+                            <label class="form-label custom-file-upload">
+                                Imagen
+                                <input class="form-control form-control-sm" type="file" id="imagen">
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                            </label>
                         </div>
                         <div class="mb-3">
                             <button type="button" class="btn btn-primary" id="btn">Registar</button>
@@ -86,7 +89,11 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="./js/insertarUsuario.js"></script>
         <br>
-        <?php require('vista/footer.php'); ?>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
 
         <script type="text/javascript" src="js/fade.js"></script>
 

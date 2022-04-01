@@ -179,8 +179,11 @@
                                     <input type="number" class="form-control" id="cantidad" value="<?php echo $cantidad?>"/>
                                 </li>
                                 <li class="list-group-item">
-                                    <label class="form-label">Imagen</label>
-                                    <input class="form-control form-control-sm" type="file" id="imagen">
+                                    <label class="form-label custom-file-upload">
+                                        Imagen
+                                        <input class="form-control form-control-sm" type="file" id="imagen">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
                                     <button type="button" class="btn btn-primary" id="btn">Editar</button>

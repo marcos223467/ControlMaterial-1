@@ -75,8 +75,11 @@
                                     <input type="number" class="form-control" id="cantidad"/>
                                 </li>
                                 <li class="list-group-item">
-                                    <label class="form-label">Imagen</label>
-                                    <input class="form-control form-control-sm" type="file" id="imagen">
+                                    <label class="form-label custom-file-upload">
+                                        Imagen
+                                        <input class="form-control form-control-sm" type="file" id="imagen">
+                                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                    </label>
                                 </li>
                                 <li class="list-group-item">
                                     <button type="button" class="btn btn-primary" id="btn">Registar</button>
@@ -91,6 +94,10 @@
         <script src="./js/insertarMaterial.js"></script>
         <br>
 
-        <?php require('vista/footer.php'); ?>
+        <footer class="page-footer font-small" id="footer-general">
+            <div class="container text-center py-3">
+            <span class="text-muted"><a href="https://auca.es/" style="">Codenautas - Auca Projectes Educatius</a> © 2021</span>
+            </div>
+        </footer> 
     </body>
 </html>

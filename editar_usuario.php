@@ -90,7 +90,7 @@
                     <div class="card" id="input-card" style="display: block; margin: 0 auto;">
                         <div class="card-header">
                             <label class="custom-file-upload">
-                                <input type="file" id="imagen"/>
+                                <input class="in" type="file" id="imagen"/>
                                 <img src="./imagenes/<?php echo $img; ?>" class="img-fluid profile-image" width="50">
                             </label> 
                             <h5>Editar Usuario</h5>

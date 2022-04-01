@@ -74,7 +74,7 @@
             <div class="card d-flex justify-content-center mt-1" id="card-user">
                 <div class="top-container" id="top-container-user">
                 <label class="custom-file-upload" id="lbl">
-                    <input type="file" id="imagen"/>
+                    <input class="in" type="file" id="imagen"/>
                     <img src="./imagenes/<?php echo $img; ?>" class="img-fluid profile-image" width="50">
                     <button type="button" class="btn" id="btn2"><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
                 </label> 
