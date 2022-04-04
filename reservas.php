@@ -111,12 +111,15 @@
                                 $nombre = $row['nombre'];
                                 $apellidos = $row['apellidos'];
                             }
+
+                            $horaInicio = substr($hora_inicio[$i], 0, -3);
+                            $horaFin = substr($hora_fin[$i], 0, -3);
                             echo "<div class='card text-dark bg-light mb-5 col mx-auto' style='width: 20rem;'>";
                                 echo "<div class='card-header'>"; echo $nombre." ".$apellidos; echo "</div>";
                                 echo "<div class='card-body' id='reserva".$i."'>";
                                     echo "<p class='card-text'>Reservado el "; echo $fecha_inicio[$i]; echo "</p>";
-                                    echo "<h5 class='card-title'>Hora inicio: "; echo $hora_inicio[$i]; echo "</h5>";
-                                    echo "<h5 class='card-title'>Hora fin: "; echo $hora_fin[$i]; echo "</h5>";
+                                    echo "<h5 class='card-title'>Hora inicio: "; echo $horaInicio; echo "</h5>";
+                                    echo "<h5 class='card-title'>Hora fin: "; echo $horaFin; echo "</h5>";
                                     echo "<h5 class='card-title'>Materiales: </h5>";
                                 echo "</div>";
                             echo "</div>";
