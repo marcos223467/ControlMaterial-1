@@ -1,9 +1,9 @@
 <?php
 
-    $server = 'localhost';
-    $username = 'root';
-    $password = '';
-    $database = 'material';
+    $server = 'https://cmcodenautas.000webhostapp.com/';
+    $username = 'id18708266_codenautas15';
+    $password = 'BOc5j_iwVmx&U+yQ';
+    $database = 'id18708266_controlmaterial';
 
     try{
 
