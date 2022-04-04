@@ -17,7 +17,6 @@
             $email = $row['email'];
             $rol = $row['rol'];
             $img = $row['imagen'];
-            
         }
 
         
@@ -96,7 +95,7 @@
                             <h5>Editar Usuario</h5>
                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-trash-can" id="delete"></i></button>
                         </div>
-                       
+                        <input id="img" value="<?php echo $img; ?>" type="hidden"/>
                         <input id="id" type="hidden" value="<?php echo $id;?>"/>
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>

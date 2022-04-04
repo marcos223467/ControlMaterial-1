@@ -9,6 +9,7 @@
         $apellidos = $_POST['apellidos'];
         $rol = $_POST['rol'];
         $img = $_POST['imagen'];
+        echo "$img";
 
         $insert = "INSERT INTO usuarios (nombre, apellidos, email, password, rol, imagen) VALUES (:nombre, :apellidos, :email, :password, :rol, :imagen)";
         $stmt = $conn->prepare($insert);
@@ -17,10 +18,10 @@
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $pssw);
         $stmt->bindParam(':rol', $rol);
-        $stmt->bindParam(':imagen', $imagen);
+        $stmt->bindParam(':imagen', $img);
 
         if($stmt->execute()){
-            $data = array('nombre' => $nombre, 'apellidos' => $apellidos, 'email' => $email, 'password' => $pssw, 'rol' => $rol, 'imagen' => $imagen);
+            $data = array('nombre' => $nombre, 'apellidos' => $apellidos, 'email' => $email, 'password' => $pssw, 'rol' => $rol, 'imagen' => $img);
             echo json_encode($data);
         }
     }

@@ -158,7 +158,7 @@
             </div>
     <?php
         }
-        else
+        else if($rol != "profe")
         {
             require('vista/acceso_denegado.php');  
         }

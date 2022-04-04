@@ -16,7 +16,7 @@
 
             if(move_uploaded_file($fileTmpPath, $dest_path))
             {
-                echo "Imagne subida correctamente";
+                echo "Imagen subida correctamente";
             }
             else
             {

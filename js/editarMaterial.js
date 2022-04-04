@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $("#alertB").hide();
     $('#btn').click(function(){
         let id = $("#id").val();
         let categoria = $("#categoria").val();

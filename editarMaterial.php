@@ -15,7 +15,8 @@
             $descripcion =  $row['descripcion'];
             $cantidad = $row['cantidad'];
             $categoria = $row['categoria'];
-            $img = $row['imagen'];            
+            $img = $row['imagen'];
+            echo "$categoria";          
         }
 
         
@@ -80,10 +81,6 @@
             <button type="button" class="btn btn-light" onclick="volver(event)">Volver</button>
         </div>
         <br>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertB">
-            El material no se ha podido registrar!
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
 
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-1 row-cols-md-1 g-3">
@@ -139,12 +136,12 @@
                                                     echo "<option value='robot'>Robot</option>";
                                                     echo "<option value='varios'>Varios</option>";
                                                     break;
-                                                case "portatil":
+                                                case "ordenador_portatil":
                                                     echo "<option value='legos'>Caja de Lego</option>";
                                                     echo "<option value='juegos_logica'>Juegos de lógica</option>";
                                                     echo "<option value='kit_robotica'>Kit de Robótica</option>";
                                                     echo "<option value='tablet'>Tablet</option>";
-                                                    echo "<option value='portatil' selected>Ordenador Portatil</option>";
+                                                    echo "<option value='ordenador_portatil' selected>Ordenador Portatil</option>";
                                                     echo "<option value='robot'>Robot</option>";
                                                     echo "<option value='varios'>Varios</option>";
                                                     break;
