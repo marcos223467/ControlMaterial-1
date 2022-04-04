@@ -16,8 +16,6 @@ $(document).ready(function() {
             }
         }
         var matycant = JSON.stringify(array);
-        console.log(matycant);
-        console.log(count);
         $.ajax({
             url:"controller/reservar.php",
             type:"POST",
@@ -25,11 +23,10 @@ $(document).ready(function() {
                 reserva: reserva,
                 hreserva: hreserva,
                 hdevolucion: hdevolucion,
-                matycant: matycant,
+                matycant: matycant
             },
             success: function(data){
                 setTimeout(function(){
-                    console.log(data);
                     $("#reserva").val("");
                     $("#hreserva").val("");
                     $("#hdevolucion").val("");
