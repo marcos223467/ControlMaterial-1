@@ -17,7 +17,7 @@
             $rol;
             $img;
 
-            $select = "SELECT * FROM usuarios WHERE id ='$id'";
+            $select = "SELECT * FROM usuarios WHERE id ='{$id}'";
             $query = $conn->query($select);
             $count = $query->rowCount();
             if ($count != 0)
@@ -160,7 +160,7 @@
         }
         else
         {
-            require('../vista/acceso_denegado.php');  
+            require('vista/acceso_denegado.php');  
         }
         require('vista/footer.php');
     ?>
