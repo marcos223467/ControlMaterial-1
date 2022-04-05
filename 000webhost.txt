@@ -1,6 +1,9 @@
 usuario: codenautas15@gmail.com
 contraseña: Codenautas2020
 
+usuario freehost: codenautas14@gmail.com
+contraseña freehost: A~P7X{,eEX8X
+
 Web: CMC
 contraseña: Q&dGu33VK@Jc%kpKujdm
 
